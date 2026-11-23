@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Presentasi Sidang PKL - CV Magnum Solusion</title>
+<!-- Google Fonts: Space Grotesk, Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Space+Grotesk:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Bootstrap 5.3 CSS & Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<style>
+    /* =========================================================
+       DESIGN TOKENS: NEO-BRUTALISM CREATIVE STUDIO PITCH DECK
+       ========================================================= */
+    :root {
+      --bg-cream: #FDFBF7;
+      --ink: #141414;
+      --ink-muted: #404040;
+      --yellow: #FFD60A;
+      --blue: #2563EB;
+      --coral: #FF5E3A;
+      --mint: #10B981;
+      --purple: #9333EA;
+
+      --soft-yellow: #FEF9C3;
+      --soft-blue: #DBEAFE;
+      --soft-coral: #FFEDD5;
+      --soft-mint: #D1FAE5;
+      --soft-purple: #F3E8FF;
+
+      --border-thick: 3.5px solid #141414;
+      --border-med: 2.5px solid #141414;
+      --shadow-hard: 6px 6px 0px #141414;
+      --shadow-hard-sm: 3.5px 3.5px 0px #141414;
+      --shadow-hard-lg: 10px 10px 0px #141414;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-cream);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      user-select: none;
+    }
+
+    h1, h2, h3, h4, h5, .display-font {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    code, .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      background: rgba(20, 20, 20, 0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+      color: var(--ink);
+    }
+
+    /* =========================================================
+       EXPLICIT NEO-BRUTALISM COLOR UTILITIES (RESTORED)
+       ========================================================= */
+    .bg-neo-yellow { background-color: var(--yellow) !important; color: var(--ink) !important; }
+    .bg-neo-blue { background-color: var(--blue) !important; color: #FFFFFF !important; }
+    .bg-neo-coral { background-color: var(--coral) !important; color: #FFFFFF !important; }
+    .bg-neo-mint { background-color: var(--mint) !important; color: var(--ink) !important; }
+    .bg-neo-purple { background-color: var(--purple) !important; color: #FFFFFF !important; }
+    .bg-neo-ink { background-color: var(--ink) !important; color: var(--yellow) !important; }
+
+    .bg-soft-yellow { background-color: var(--soft-yellow) !important; color: var(--ink) !important; }
+    .bg-soft-blue { background-color: var(--soft-blue) !important; color: var(--ink) !important; }
+    .bg-soft-coral { background-color: var(--soft-coral) !important; color: var(--ink) !important; }
+    .bg-soft-mint { background-color: var(--soft-mint) !important; color: var(--ink) !important; }
+    .bg-soft-purple { background-color: var(--soft-purple) !important; color: var(--ink) !important; }
+
+    .text-neo-blue { color: var(--blue) !important; }
+    .text-neo-coral { color: var(--coral) !important; }
+    .text-neo-mint { color: #059669 !important; }
+    .text-neo-purple { color: var(--purple) !important; }
+
+    /* =========================================================
+       PROGRESS BAR & STAGE BACKGROUND
+       ========================================================= */
+    .deck-progress-track {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: #E5E7EB;
+      border-bottom: 3px solid var(--ink);
+      z-index: 1060;
+    }
+
+    .deck-progress-fill {
+      height: 100%;
+      width: 8.33%;
+      background: linear-gradient(90deg, var(--coral), var(--yellow), var(--mint), var(--blue));
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .presentation-stage {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--bg-cream);
+      background-image: radial-gradient(#BDBDBD 1.7px, transparent 1.7px);
+      background-size: 26px 26px;
+      overflow: hidden;
+    }
+
+    .bg-blob-top {
+      position: absolute;
+      top: -95px;
+      right: -85px;
+      width: 310px;
+      height: 310px;
+      background: var(--yellow);
+      border: var(--border-thick);
+      border-radius: 50%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .bg-blob-bottom {
+      position: absolute;
+      bottom: -115px;
+      left: -85px;
+      width: 260px;
+      height: 260px;
+      background: var(--soft-purple);
+      border: var(--border-thick);
+      border-radius: 42px;
+      transform: rotate(16deg);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       SLIDE LAYOUT & FULL-HEIGHT STRETCH
+       ========================================================= */
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 20px 44px 82px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.985);
+      transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                  visibility 0.38s;
+      z-index: 5;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      z-index: 10;
+    }
+
+    .slide-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 12;
+      flex-shrink: 0;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-sm);
+      border-radius: 999px;
+      padding: 6px 18px 6px 10px;
+      font-size: 0.94rem;
+    }
+
+    .logo-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2.5px solid var(--ink);
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow);
+      color: var(--ink);
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-sm);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      padding: 7px 18px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .slide-body {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 12px 0;
+      z-index: 12;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .stretch-row {
+      flex: 1 1 auto;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    /* =========================================================
+       NEO-BRUTALIST CARDS, TYPOGRAPHY & BUTTONS
+       ========================================================= */
+    .neo-card {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      border-radius: 22px;
+      padding: 22px 24px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .neo-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0px var(--ink);
+    }
+
+    .neo-card-sm {
+      background: #FFFFFF;
+      border: var(--border-med);
+      box-shadow: var(--shadow-hard-sm);
+      border-radius: 16px;
+      padding: 13px 16px;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.25rem, 3.8vw, 3.55rem);
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--ink);
+    }
+
+    .highlight-marker {
+      background: var(--yellow);
+      color: var(--ink);
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 3px solid var(--ink);
+      display: inline-block;
+      transform: rotate(-1.2deg);
+    }
+
+    .slide-title {
+      font-size: clamp(1.85rem, 2.7vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .body-lg {
+      font-size: clamp(1.04rem, 1.25vw, 1.2rem);
+      line-height: 1.55;
+    }
+
+    .card-heading-lg {
+      font-size: clamp(1.16rem, 1.48vw, 1.4rem);
+      font-weight: 800;
+    }
+
+    /* Projector-friendly scale for .small and .badge */
+    .slide .small {
+      font-size: 0.98rem !important;
+      line-height: 1.48;
+    }
+
+    .slide .badge {
+      font-size: 0.85rem !important;
+      padding: 6px 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+    }
+
+    .slide-footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.92rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .btn-neo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      border-radius: 14px;
+      padding: 10px 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-neo:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0px var(--ink);
+    }
+
+    .btn-neo:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+
+    /* Browser Frame */
+    .browser-frame {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-lg);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .browser-bar {
+      background: var(--yellow);
+      border-bottom: var(--border-thick);
+      padding: 9px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .browser-dots span {
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 2.5px solid var(--ink);
+      margin-right: 4px;
+    }
+
+    .icon-square {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 2.5px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    /* =========================================================
+       INTERACTIVE TABS, ACCORDIONS, FILTERS & STEPPER
+       ========================================================= */
+    .neo-tab-group {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .neo-tab-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      background: #FFFFFF;
+      color: var(--ink);
+      border: var(--border-med);
+      box-shadow: var(--shadow-hard-sm);
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .neo-tab-btn:hover {
+      transform: translateY(-2px);
+      background: var(--soft-yellow);
+    }
+
+    .neo-tab-btn.active {
+      background: var(--ink);
+      color: var(--yellow);
+      transform: translateY(-1px);
+    }
+
+    .tab-pane-box {
+      display: none;
+      animation: fadeSlideIn 0.25s ease;
+    }
+
+    .tab-pane-box.active {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Accordion Cards (Slide 04) */
+    .accordion-neo-card {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-sm);
+      border-radius: 18px;
+      padding: 15px 18px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .accordion-neo-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-hard);
+    }
+
+    .accordion-neo-card.open {
+      background: var(--soft-yellow);
+      box-shadow: var(--shadow-hard);
+    }
+
+    .accordion-neo-card.highlight-div {
+      background: var(--soft-blue);
+    }
+
+    .accordion-neo-card.highlight-div.open {
+      background: var(--yellow);
+    }
+
+    .accordion-detail {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 2.5px dashed var(--ink);
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    .accordion-neo-card.open .accordion-detail {
+      display: block;
+      animation: fadeSlideIn 0.2s ease;
+    }
+
+    .accordion-chevron {
+      transition: transform 0.2s ease;
+    }
+
+    .accordion-neo-card.open .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+
+    /* 11 Layanan: tipografi diperbesar agar terbaca saat presentasi */
+    section[data-slide="7"] .service-chip {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 16px 17px;
+      line-height: 1.5;
+    }
+    section[data-slide="7"] .service-chip .fw-extrabold {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: #123D75 !important;
+    }
+    section[data-slide="7"] .service-chip .text-muted {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.45;
+      font-weight: 600;
+      color: #263449 !important;
+    }
+    section[data-slide="7"] .neo-tab-btn {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+    @media (max-width: 767.98px) {
+      section[data-slide="7"] .service-chip .fw-extrabold { font-size: 0.98rem; }
+      section[data-slide="7"] .service-chip .text-muted { font-size: 0.9rem; }
+    }
+
+    /* Service Filter Cards (Slide 05) — stronger contrast and legibility */
+    .service-chip {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-sm);
+      border-radius: 16px;
+      padding: 14px 16px;
+      transition: all 0.2s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #172033;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .service-chip .fw-extrabold {
+      color: #123D75 !important;
+      font-size: 0.98rem;
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+    }
+
+    .service-chip .text-muted {
+      color: #263449 !important;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .service-chip.dimmed {
+      opacity: 0.28;
+      transform: scale(0.97);
+    }
+
+    .service-chip.highlighted {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-hard);
+    }
+
+    .chapter-summary { color: #172033; max-width: 58%; text-align: right; line-height: 1.35; }
+
+    /* Stepper Cards (legacy interactive detail) */
+    .step-btn-card {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-sm);
+      border-radius: 16px;
+      padding: 14px 18px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: left;
+      width: 100%;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .step-btn-card.active {
+      background: var(--yellow);
+      box-shadow: var(--shadow-hard);
+      transform: translate(-2px, -2px);
+    }
+
+    /* Photo Slot & Zoom Trigger */
+    .photo-slot-card {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-sm);
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .photo-slot-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-hard);
+    }
+
+    .photo-caption-bar {
+      background: var(--bg-cream);
+      border-top: 2.5px solid var(--ink);
+      padding: 9px 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* =========================================================
+       BOTTOM PRESENTER DOCK & SLIDE JUMP MENU
+       ========================================================= */
+    .presenter-dock {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      border-radius: 999px;
+      padding: 6px 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1050;
+    }
+
+    .dock-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2.5px solid var(--ink);
+      background: var(--bg-cream);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .dock-btn:hover:not(:disabled) {
+      background: var(--yellow);
+      transform: translateY(-2px);
+    }
+
+    .dock-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .dock-btn-pill {
+      border-radius: 999px;
+      width: auto;
+      padding: 0 14px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      gap: 6px;
+    }
+
+    .slide-counter-btn {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.96rem;
+      background: var(--ink);
+      color: var(--yellow);
+      border: 2.5px solid var(--ink);
+      padding: 5px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.15s ease;
+    }
+
+    .slide-counter-btn:hover {
+      transform: translateY(-2px);
+      background: var(--blue);
+      color: #FFFFFF;
+    }
+
+    .jump-menu-popover {
+      position: fixed;
+      bottom: 74px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      width: min(92vw, 480px);
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-lg);
+      border-radius: 20px;
+      padding: 14px;
+      z-index: 1055;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .jump-menu-popover.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .jump-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .jump-item:hover {
+      background: var(--soft-yellow);
+      border-color: var(--ink);
+    }
+
+    .jump-item.active {
+      background: var(--yellow);
+      border-color: var(--ink);
+    }
+
+    /* Neo-Brutalist Detail Modal */
+    .neo-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 20, 20, 0.72);
+      z-index: 1080;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .neo-modal-backdrop.open {
+      display: flex;
+      animation: fadeSlideIn 0.2s ease;
+    }
+
+    .neo-modal-box {
+      background: #FFFFFF;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard-lg);
+      border-radius: 22px;
+      width: min(94vw, 760px);
+      overflow: hidden;
+    }
+
+    /* Dekorasi Khusus Slide Tanya Jawab & Penutup */
+    .qa-sticker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      user-select: none;
+    }
+
+    .qa-display-title {
+      font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    /* Edit Mode */
+    [contenteditable="true"] {
+      outline: 3px dashed var(--blue);
+      outline-offset: 3px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 6px;
+      user-select: text;
+      cursor: text;
+    }
+
+    @media (max-width: 991px) {
+      html, body { overflow-y: auto; }
+      .presentation-stage { height: auto; min-height: 100vh; }
+      .slide { position: relative; display: none; padding: 18px 16px 88px 16px; }
+      .slide.active { display: flex; }
+      .presenter-dock { width: calc(100% - 20px); justify-content: space-between; padding: 6px 12px; }
+    }
+  
+
+
+    /* =========================================================
+       COMPACT EDITORIAL LAYOUT — SLIDES 12–16
+       Mengurangi kesan card raksasa tanpa meninggalkan ruang kosong.
+       ========================================================= */
+    .slide[data-slide="12"] .slide-body,
+    .slide[data-slide="13"] .slide-body,
+    .slide[data-slide="14"] .slide-body,
+    .slide[data-slide="15"] .slide-body,
+    .slide[data-slide="16"] .slide-body {
+      justify-content: flex-start;
+      gap: 14px;
+    }
+
+    .slide[data-slide="12"] .row.stretch-row,
+    .slide[data-slide="13"] .row.stretch-row,
+    .slide[data-slide="14"] .row.stretch-row,
+    .slide[data-slide="15"] .row.stretch-row,
+    .slide[data-slide="16"] .row.stretch-row {
+      flex: 0 0 auto;
+      align-items: stretch;
+    }
+
+    .slide[data-slide="12"] .photo-slot-card {
+      height: auto !important;
+      justify-content: flex-start !important;
+    }
+    .slide[data-slide="12"] .photo-slot-card img {
+      height: 158px !important;
+      object-fit: cover;
+    }
+    .slide[data-slide="12"] .photo-slot-card .p-3 {
+      padding: 13px 15px !important;
+    }
+    .slide[data-slide="12"] .photo-slot-card .card-heading-lg {
+      font-size: 1.12rem;
+      line-height: 1.2;
+    }
+    .slide[data-slide="12"] .photo-caption-bar {
+      padding: 8px 12px;
+      font-size: .82rem;
+    }
+
+    .slide[data-slide="13"] .neo-card,
+    .slide[data-slide="14"] .neo-card,
+    .slide[data-slide="15"] .neo-card,
+    .slide[data-slide="16"] .neo-card {
+      min-height: 0 !important;
+      height: auto !important;
+      padding: 18px 19px;
+      border-radius: 17px;
+      justify-content: flex-start !important;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .slide[data-slide="13"] .row > div,
+    .slide[data-slide="14"] .row > div,
+    .slide[data-slide="15"] .row > div,
+    .slide[data-slide="16"] .row > div {
+      display: flex;
+    }
+    .slide[data-slide="13"] .card-heading-lg,
+    .slide[data-slide="14"] .card-heading-lg,
+    .slide[data-slide="15"] .card-heading-lg,
+    .slide[data-slide="16"] .card-heading-lg {
+      font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+      line-height: 1.2;
+      margin-bottom: 9px !important;
+    }
+    .slide[data-slide="13"] .neo-card p,
+    .slide[data-slide="14"] .neo-card p,
+    .slide[data-slide="15"] .neo-card p,
+    .slide[data-slide="16"] .neo-card p {
+      font-size: .94rem !important;
+      line-height: 1.48;
+    }
+    .slide[data-slide="13"] .neo-card::before,
+    .slide[data-slide="14"] .neo-card::before,
+    .slide[data-slide="15"] .neo-card::before,
+    .slide[data-slide="16"] .neo-card::before {
+      content: "";
+      display: block;
+      width: 38px;
+      height: 5px;
+      background: var(--ink);
+      border-radius: 99px;
+      margin-bottom: 13px;
+    }
+
+    /* Lower info strip gives the compact cards a clear visual finish. */
+    .slide[data-slide="13"] .slide-body::after,
+    .slide[data-slide="15"] .slide-body::after,
+    .slide[data-slide="16"] .slide-body::after {
+      content: "Seluruh proses dikerjakan dan ditinjau bersama oleh Andhika dan Bagas.";
+      display: block;
+      margin-top: auto;
+      padding: 12px 16px;
+      background: var(--soft-yellow);
+      border: 2.5px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: .92rem;
+      line-height: 1.4;
+    }
+    .slide[data-slide="14"] .slide-body::after {
+      content: "Temuan pengujian didokumentasikan dalam laporan bug sebagai bahan tindak lanjut.";
+      display: block;
+      margin-top: auto;
+      padding: 12px 16px;
+      background: var(--soft-blue);
+      border: 2.5px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: .92rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 991px) {
+      .slide[data-slide="12"] .photo-slot-card img { height: 190px !important; }
+      .slide[data-slide="13"] .row > div,
+      .slide[data-slide="14"] .row > div,
+      .slide[data-slide="15"] .row > div,
+      .slide[data-slide="16"] .row > div { margin-bottom: 4px; }
+    }
+    @media (max-width: 575px) {
+      .slide[data-slide="12"] .photo-slot-card img { height: auto !important; aspect-ratio: 16 / 9; }
+      .slide[data-slide="13"] .neo-card,
+      .slide[data-slide="14"] .neo-card,
+      .slide[data-slide="15"] .neo-card,
+      .slide[data-slide="16"] .neo-card { padding: 15px !important; }
+      .slide[data-slide="13"] .slide-body::after,
+      .slide[data-slide="14"] .slide-body::after,
+      .slide[data-slide="15"] .slide-body::after,
+      .slide[data-slide="16"] .slide-body::after { font-size: .86rem; }
+    }
+
+    /* CENTER ALIGNMENT — SLIDES 12–16 */
+    .slide[data-slide="12"] .slide-body,
+    .slide[data-slide="13"] .slide-body,
+    .slide[data-slide="14"] .slide-body,
+    .slide[data-slide="15"] .slide-body,
+    .slide[data-slide="16"] .slide-body {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .slide[data-slide="12"] .slide-body > *,
+    .slide[data-slide="13"] .slide-body > *,
+    .slide[data-slide="14"] .slide-body > *,
+    .slide[data-slide="15"] .slide-body > *,
+    .slide[data-slide="16"] .slide-body > * {
+      width: 100%;
+      max-width: 1120px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .slide[data-slide="12"] .slide-body > .row,
+    .slide[data-slide="13"] .slide-body > .row,
+    .slide[data-slide="14"] .slide-body > .row,
+    .slide[data-slide="15"] .slide-body > .row,
+    .slide[data-slide="16"] .slide-body > .row {
+      justify-content: center;
+    }
+    .slide[data-slide="12"] .photo-slot-card,
+    .slide[data-slide="13"] .neo-card,
+    .slide[data-slide="14"] .neo-card,
+    .slide[data-slide="15"] .neo-card,
+    .slide[data-slide="16"] .neo-card {
+      text-align: center;
+      align-items: center;
+    }
+    .slide[data-slide="12"] .photo-slot-card .p-3,
+    .slide[data-slide="13"] .neo-card > *,
+    .slide[data-slide="14"] .neo-card > *,
+    .slide[data-slide="15"] .neo-card > *,
+    .slide[data-slide="16"] .neo-card > * {
+      text-align: center;
+    }
+    .slide[data-slide="13"] .slide-body::after,
+    .slide[data-slide="14"] .slide-body::after,
+    .slide[data-slide="15"] .slide-body::after,
+    .slide[data-slide="16"] .slide-body::after {
+      width: min(100%, 1120px);
+      margin: 18px auto 0;
+      text-align: center;
+    }
+
+    /* Responsive image behavior across desktop and mobile */
+    .slide img { max-width: 100%; }
+    .slide img.img-fluid { height: auto; }
+    .slide .browser-frame > img, .slide #showcaseImg { width: 100%; height: auto; object-fit: contain; }
+    .chapter-divider .hero-headline { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.08; }
+    @media (max-width: 575px) {
+      .service-chip { min-height: 0; padding: 12px !important; }
+      .service-chip .fw-extrabold { font-size: .84rem !important; }
+      .service-chip .text-muted { font-size: .78rem !important; }
+      .chapter-divider .neo-card { padding: 1.25rem !important; }
+    }
+
+    /* Readability pass: service cards */
+    .service-chip .fw-extrabold { font-size: .92rem !important; line-height: 1.35; color: #172033 !important; letter-spacing: .005em; }
+    .service-chip .text-muted { font-size: .84rem !important; line-height: 1.45; color: #334155 !important; font-weight: 600; }
+    .service-chip { min-height: 112px; }
+
+
+    /* IMAGE RESPONSIVENESS — PRESERVE ORIGINAL PROPORTIONS */
+    /* Keep logos in their circular avatar treatment; all content images retain
+       their source aspect ratio instead of being forced into short wide boxes. */
+    .slide img:not(.logo-avatar),
+    #modalImg {
+      max-width: 100%;
+    }
+    .slide img.img-fluid:not(.logo-avatar),
+    .slide .photo-slot-card img,
+    .slide #showcaseImg,
+    .slide .browser-frame > img {
+      display: block;
+      width: 100%;
+      height: auto !important;
+      max-height: none;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+    }
+    .slide .photo-slot-card img {
+      flex: 0 0 auto;
+    }
+    #modalImg {
+      width: 100%;
+      height: auto !important;
+      max-height: 70vh !important;
+      object-fit: contain !important;
+    }
+    @media (max-width: 767px) {
+      .slide img:not(.logo-avatar) {
+        width: 100%;
+        height: auto !important;
+        max-height: none;
+        object-fit: contain !important;
+      }
+      #modalImg { max-height: 65vh !important; }
+    }
+
+</style>
+<style id="motion-css">
+/* === LAPISAN MOTION (konten asli tidak diubah) === */
+.slide{transition:none!important}
+.slide.mo-out{visibility:visible!important;opacity:1!important;transform:none!important;z-index:9!important;pointer-events:none}
+.bg-blob-top,.bg-blob-bottom{transition:translate .9s cubic-bezier(.16,1,.3,1)}
+.deck-progress-fill{transition-duration:.6s!important;transition-timing-function:cubic-bezier(.22,1,.36,1)!important}
+.qa-sticker{cursor:grab;touch-action:none}.qa-sticker:active{cursor:grabbing}
+body:not(.mo-ready) .slide.active{opacity:0!important}
+@media (prefers-reduced-motion:reduce){.bg-blob-top,.bg-blob-bottom,.deck-progress-fill{transition:none!important}}
+</style>
+</head>
+<body>
+<!-- Progress Bar Atas -->
+<div class="deck-progress-track">
+<div class="deck-progress-fill" id="progressFill"></div>
+</div>
+<!-- Stage Utama -->
+<main class="presentation-stage">
+<div class="bg-blob-top"></div>
+<div class="bg-blob-bottom"></div>
+<!-- =========================================================
+         SLIDE 01: COVER & IDENTITAS TIM
+         ========================================================= -->
+<section class="slide active" data-slide="1" data-title="Cover &amp; Identitas Tim">
+<div class="slide-top-bar">
+<div class="brand-pill">
+<img alt="Logo SMK TI" class="logo-avatar" src="https://placehold.co/80x80/2563EB/FFFFFF?text=TI"/>
+<img alt="Logo Magnum Solusion" class="logo-avatar" src="https://placehold.co/80x80/FF5E3A/FFFFFF?text=MS" style="margin-left: -14px;"/>
+<span class="fw-extrabold text-uppercase">SMK TI Bali Global Denpasar</span>
+</div>
+<span class="section-pill bg-neo-coral">Juli – Oktober 2026</span>
+</div>
+<div class="slide-body">
+<div class="row align-items-center g-4 stretch-row">
+<div class="col-lg-7 d-flex flex-column justify-content-center">
+<div class="d-inline-block px-3 py-1 mb-3 fw-extrabold small bg-soft-blue border border-2 border-dark rounded-pill align-self-start">
+<i class="bi bi-stars text-neo-blue me-1"></i> SIDANG LAPORAN PRAKTIK KERJA LAPANGAN (PKL)
+            </div>
+<h1 class="hero-headline mb-3 editable-text">
+              Pembuatan <span class="highlight-marker">Website Profil</span> &amp; Iklan Produk Perusahaan dengan CMS
+            </h1>
+<p class="body-lg fw-medium mb-4 pe-lg-4 editable-text" style="color: var(--ink-muted);">
+              Implementasi antarmuka responsif dan sistem manajemen konten sederhana berbasis PHP &amp; MySQL pada <strong>CV Magnum Solusion</strong>, Denpasar.
+            </p>
+<div class="d-flex flex-wrap align-items-center gap-3">
+<button class="btn-neo bg-neo-blue fs-5" onclick="goToSlide(3)">
+<span>Mulai Presentasi</span>
+<i class="bi bi-arrow-right-circle-fill fs-5"></i>
+</button>
+<button class="btn-neo bg-neo-mint fs-5" onclick="goToSlide(15)">
+<i class="bi bi-window-desktop"></i>
+<span>Lihat Hasil Website</span>
+</button>
+</div>
+</div>
+<div class="col-lg-5 d-flex flex-column justify-content-center">
+<div class="browser-frame" style="transform: rotate(1deg);">
+<div class="browser-bar">
+<div class="browser-dots">
+<span style="background: #FF5E3A;"></span>
+<span style="background: #FFD60A;"></span>
+<span style="background: #10B981;"></span>
+</div>
+<span class="fw-extrabold small">magnum-solusion.co.id</span>
+<button class="btn btn-sm p-0 border-0 fw-bold" onclick="openDetailModal('Pratinjau Utama Proyek PKL', 'https://placehold.co/960x540/2563EB/FFFFFF?text=Halaman+Beranda+Website+CV+Magnum+Solusion', 'Tampilan halaman beranda (index.php) Website Profil dan Katalog Produk CV Magnum Solusion yang dikembangkan menggunakan HTML, CSS, JavaScript, Bootstrap, dan CMS PHP.')" title="Perbesar Preview">
+<i class="bi bi-arrows-angle-expand"></i>
+</button>
+</div>
+<img alt="Preview Proyek PKL" class="img-fluid w-100" onclick="openDetailModal('Pratinjau Utama Proyek PKL', 'https://placehold.co/960x540/2563EB/FFFFFF?text=Halaman+Beranda+Website+CV+Magnum+Solusion', 'Tampilan halaman beranda (index.php) Website Profil dan Katalog Produk CV Magnum Solusion yang dikembangkan menggunakan HTML, CSS, JavaScript, Bootstrap, dan CMS PHP.')" src="https://placehold.co/720x420/2563EB/FFFFFF?text=Slot+Foto+01:+Mockup+Beranda+Website+PKL" style="aspect-ratio: 16/9.4; object-fit: cover; cursor: pointer;"/>
+<div class="photo-caption-bar">
+<span class="editable-text"><i class="bi bi-camera-fill text-neo-blue me-1"></i> Foto 01: Halaman Beranda Website</span>
+<span class="badge bg-neo-yellow border border-2 border-dark">Zoom</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4 Kartu Identitas -->
+<div class="row g-3 z-3 flex-shrink-0">
+<div class="col-6 col-lg-3">
+<div class="neo-card-sm bg-soft-yellow d-flex align-items-center gap-3 h-100">
+<div class="icon-square bg-neo-yellow"><i class="bi bi-people-fill"></i></div>
+<div>
+<div class="text-uppercase fw-bold" style="font-size: 0.76rem; color: var(--ink-muted);">Tim Penyusun (2 Siswa)</div>
+<div class="fw-extrabold small editable-text">I Gede Putra Andhika P. &amp; Bagas</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-lg-3">
+<div class="neo-card-sm bg-soft-blue d-flex align-items-center gap-3 h-100">
+<div class="icon-square bg-neo-blue"><i class="bi bi-code-slash"></i></div>
+<div>
+<div class="text-uppercase fw-bold" style="font-size: 0.76rem; color: var(--ink-muted);">Konsentrasi Keahlian</div>
+<div class="fw-extrabold small editable-text">Rekayasa Perangkat Lunak</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-lg-3">
+<div class="neo-card-sm bg-soft-coral d-flex align-items-center gap-3 h-100">
+<div class="icon-square bg-neo-coral"><i class="bi bi-building-fill"></i></div>
+<div>
+<div class="text-uppercase fw-bold" style="font-size: 0.76rem; color: var(--ink-muted);">Tempat PKL</div>
+<div class="fw-extrabold small editable-text">CV Magnum Solusion, Denpasar</div>
+</div>
+</div>
+</div>
+<div class="col-6 col-lg-3">
+<div class="neo-card-sm bg-soft-mint d-flex align-items-center gap-3 h-100">
+<div class="icon-square bg-neo-mint"><i class="bi bi-award-fill"></i></div>
+<div>
+<div class="text-uppercase fw-bold" style="font-size: 0.76rem; color: var(--ink-muted);">Pembimbing Industri</div>
+<div class="fw-extrabold small editable-text">Andy Giller (Programmer &amp; Dev)</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================
+         SLIDE 02: BAB I — LATAR BELAKANG, TUJUAN & MANFAAT (INTERACTIVE TABS)
+         ========================================================= -->
+<section class="slide chapter-divider" data-slide="2" data-title="BAB I — Pendahuluan">
+<div class="slide-top-bar"><span class="section-pill bg-neo-coral">BAB I • SECTION JUDUL</span><span class="fw-bold small">Pengantar bab</span></div>
+<div class="slide-body d-flex flex-column justify-content-center">
+<div class="neo-card bg-white p-4 p-md-5 mx-auto w-100" style="max-width:920px; border-width:3px; box-shadow:8px 8px 0 #172033;">
+<div class="d-flex align-items-center gap-3 mb-4"><span class="badge bg-neo-ink px-3 py-2">BAB I</span><span class="fw-extrabold small text-uppercase" style="letter-spacing:.12em;color:#475569;">Ringkasan Bab</span></div>
+<h1 class="hero-headline mb-3">Pendahuluan</h1>
+<p class="body-lg fw-semibold mb-0" style="color:#334155;line-height:1.65;">Bab ini membahas latar belakang pelaksanaan PKL, tujuan yang ingin dicapai, serta manfaat kegiatan bagi siswa, sekolah, dan perusahaan.</p>
+</div></div><div class="slide-footer-bar"><span>BAB I — Pendahuluan</span><span>Section Judul</span></div></section>
+<section class="slide" data-slide="3" data-title="Bab I: Latar Belakang, Tujuan &amp; Manfaat">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-coral">03 • Bab I — Pendahuluan</span>
+
+</div>
+<div class="slide-body">
+<div class="d-flex flex-wrap justify-content-between align-items-end mb-3 gap-2 flex-shrink-0">
+<div>
+<h2 class="slide-title mb-1">Pendahuluan Pelaksanaan PKL</h2>
+<p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Landasan akademik SMK TI Bali Global Denpasar dalam menyelenggarakan Praktik Kerja Lapangan.</p>
+</div>
+<div class="neo-tab-group" data-tab-group="bab1">
+<button class="neo-tab-btn active" onclick="switchTab('bab1', 'latar', this)">
+<i class="bi bi-lightbulb-fill"></i> 1.1 Latar Belakang
+            </button>
+<button class="neo-tab-btn" onclick="switchTab('bab1', 'tujuan', this)">
+<i class="bi bi-bullseye"></i> 1.2 Tujuan PKL
+            </button>
+<button class="neo-tab-btn" onclick="switchTab('bab1', 'manfaat', this)">
+<i class="bi bi-diagram-3-fill"></i> 1.3 Manfaat (3 Pihak)
+            </button>
+</div>
+</div>
+<!-- Tab 1: Latar Belakang -->
+<div class="tab-pane-box active" id="bab1-latar">
+<div class="row g-4 stretch-row">
+<div class="col-lg-6">
+<div class="neo-card bg-soft-yellow h-100 d-flex flex-column justify-content-center">
+<span class="badge bg-neo-yellow border border-2 border-dark fw-extrabold mb-3 align-self-start">1.1.1 Latar Belakang Umum</span>
+<h3 class="card-heading-lg mb-3">Tuntutan Era Teknologi Informasi</h3>
+<p class="body-lg fw-medium mb-0 editable-text">
+                  Perkembangan teknologi informasi dan komunikasi berjalan sangat pesat sehingga membutuhkan tenaga kerja ahli yang terdidik, terampil, dan profesional. <strong>SMK TI Bali Global Denpasar</strong> berkomitmen meningkatkan mutu pendidikan agar lulusannya mampu mengimbangi laju perubahan teknologi di dunia industri.
+                </p>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="neo-card bg-soft-blue h-100 d-flex flex-column justify-content-center">
+<span class="badge bg-neo-blue border border-2 border-dark fw-extrabold mb-3 align-self-start">1.1.2 Latar Belakang Khusus</span>
+<h3 class="card-heading-lg mb-3">Program Wajib Kelas XI</h3>
+<p class="body-lg fw-medium mb-0 editable-text">
+                  Kurikulum SMK TI Bali Global Denpasar mewajibkan siswa kelas XI mengikuti <strong>Praktik Kerja Lapangan (PKL)</strong> agar siswa tidak hanya menguasai teori di kelas, tetapi mampu mempraktikkan ilmunya secara nyata, melatih kedisiplinan, bersosialisasi di lingkungan kerja baru, serta belajar bertanggung jawab.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 2: Tujuan PKL -->
+<div class="tab-pane-box" id="bab1-tujuan">
+<div class="row g-4 stretch-row">
+<div class="col-lg-6">
+<div class="neo-card bg-soft-mint h-100 d-flex flex-column justify-content-center">
+<div class="d-flex align-items-center gap-3 mb-3">
+<div class="icon-square bg-neo-mint"><i class="bi bi-globe2"></i></div>
+<h3 class="card-heading-lg mb-0">1.2.1 Tujuan Umum</h3>
+</div>
+<ul class="body-lg fw-semibold ps-3 mb-0 editable-text" style="line-height: 1.75;">
+<li>Meningkatkan mutu Sumber Daya Manusia (SDM) kejuruan.</li>
+<li>Melatih kemampuan siswa beradaptasi di lingkungan kerja nyata.</li>
+<li>Mensinergikan teori pembelajaran sekolah dengan praktik industri.</li>
+<li>Memahami alur pelaksanaan pekerjaan secara profesional di dunia usaha.</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="neo-card bg-soft-coral h-100 d-flex flex-column justify-content-center">
+<div class="d-flex align-items-center gap-3 mb-3">
+<div class="icon-square bg-neo-coral"><i class="bi bi-check2-circle"></i></div>
+<h3 class="card-heading-lg mb-0">1.2.2 Tujuan Khusus</h3>
+</div>
+<ul class="body-lg fw-semibold ps-3 mb-0 editable-text" style="line-height: 1.75;">
+<li>Memenuhi syarat ketuntasan nilai kenaikan kelas XI.</li>
+<li>Mencari pengalaman kerja langsung sesuai kompetensi keahlian RPL.</li>
+<li>Memperoleh keterampilan teknis sebagai bekal karier masa depan.</li>
+<li>Menambah wawasan standar kerja di perusahaan teknologi informasi.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 3: Manfaat PKL -->
+<div class="tab-pane-box" id="bab1-manfaat">
+<div class="row g-4 stretch-row">
+<div class="col-md-4">
+<div class="neo-card bg-soft-blue h-100 d-flex flex-column justify-content-center">
+<div class="icon-square bg-neo-blue mb-3"><i class="bi bi-mortarboard-fill"></i></div>
+<h4 class="card-heading-lg mb-2">1.3.1 Bagi Sekolah</h4>
+<p class="body-lg fw-medium mb-0 editable-text">
+                  Perwujudan program keterkaitan dan kesepadanan (<em>link &amp; match</em>) antara SMK TI Bali Global Denpasar dengan dunia usaha/industri guna mencetak lulusan siap kerja.
+                </p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="neo-card bg-soft-coral h-100 d-flex flex-column justify-content-center">
+<div class="icon-square bg-neo-coral mb-3"><i class="bi bi-building-check"></i></div>
+<h4 class="card-heading-lg mb-2">1.3.2 Bagi Perusahaan</h4>
+<p class="body-lg fw-medium mb-0 editable-text">
+                  Saling bertukar informasi perkembangan teknologi antara industri dan sekolah, membantu penyelesaian tugas operasional, serta menjaring calon tenaga kerja kompeten.
+                </p>
+</div>
+</div>
+<div class="col-md-4">
+<div class="neo-card bg-soft-mint h-100 d-flex flex-column justify-content-center">
+<div class="icon-square bg-neo-mint mb-3"><i class="bi bi-person-check-fill"></i></div>
+<h4 class="card-heading-lg mb-2">1.3.3 Bagi Siswa</h4>
+<p class="body-lg fw-medium mb-0 editable-text">
+                  Mengasah kemampuan teknis pemrograman yang dipelajari di sekolah melalui praktik langsung di bawah bimbingan tenaga kerja profesional.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Bab I — Latar Belakang, Tujuan &amp; Manfaat</span>
+<span>Slide 02 / 20</span>
+</div>
+</section>
+<!-- =========================================================
+         SLIDE 03: BAB II — SEJARAH, VISI MISI & LOGO CV MAGNUM SOLUSION
+         ========================================================= -->
+<section class="slide chapter-divider" data-slide="4" data-title="BAB II — Tinjauan Umum Perusahaan">
+<div class="slide-top-bar"><span class="section-pill bg-neo-blue">BAB II • SECTION JUDUL</span><span class="fw-bold small">Pengantar bab</span></div>
+<div class="slide-body d-flex flex-column justify-content-center">
+<div class="neo-card bg-white p-4 p-md-5 mx-auto w-100" style="max-width:920px; border-width:3px; box-shadow:8px 8px 0 #172033;">
+<div class="d-flex align-items-center gap-3 mb-4"><span class="badge bg-neo-ink px-3 py-2">BAB II</span><span class="fw-extrabold small text-uppercase" style="letter-spacing:.12em;color:#475569;">Ringkasan Bab</span></div>
+<h1 class="hero-headline mb-3">Tinjauan Umum Perusahaan</h1>
+<p class="body-lg fw-semibold mb-0" style="color:#334155;line-height:1.65;">Bab ini memperkenalkan CV Magnum Solusion melalui sejarah singkat, visi dan misi, struktur organisasi, serta bidang layanan dan jasa perusahaan.</p>
+</div></div><div class="slide-footer-bar"><span>BAB II — Tinjauan Umum Perusahaan</span><span>Section Judul</span></div></section>
+<section class="slide" data-slide="5" data-title="Bab II: Sejarah &amp; Visi Misi Perusahaan">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-blue">05 • Bab II — Tinjauan Umum</span>
+
+</div>
+<div class="slide-body">
+<div class="mb-3 flex-shrink-0">
+<h2 class="slide-title mb-1">Profil &amp; Visi Misi CV Magnum Solusion</h2>
+<p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Perjalanan transformasi usaha dan arah strategis mitra industri di Denpasar.</p>
+</div>
+<div class="row g-4 stretch-row">
+<!-- Kiri: Foto Logo Resmi & Sejarah -->
+<div class="col-lg-5 d-flex flex-column gap-3">
+<div class="photo-slot-card flex-shrink-0" onclick="openDetailModal('Logo &amp; Kantor CV Magnum Solusion (Gambar 2.1)', 'https://placehold.co/900x480/2563EB/FFFFFF?text=Logo+Resmi+%26+Kantor+CV+Magnum+Solusion', 'Identitas visual resmi CV Magnum Solusion yang bergerak di bidang solusi infrastruktur Teknologi Informasi, jaringan, dan pengembangan sistem di Denpasar, Bali.')">
+<img alt="Logo CV Magnum Solusion" class="img-fluid w-100" src="https://placehold.co/700x260/2563EB/FFFFFF?text=Slot+Foto+02:+Logo+Resmi+CV+Magnum+Solusion" style="height: 170px; object-fit: cover;"/>
+<div class="photo-caption-bar">
+<span class="editable-text"><i class="bi bi-image text-neo-blue me-1"></i> Foto 02: Logo CV Magnum Solusion</span>
+<span class="badge bg-neo-yellow border border-2 border-dark">Zoom</span>
+</div>
+</div>
+<div class="neo-card bg-neo-blue flex-grow-1 d-flex flex-column justify-content-center">
+<span class="badge bg-neo-yellow border border-2 border-dark fw-extrabold mb-3 align-self-start">2.1 Sejarah Perusahaan</span>
+<p class="body-lg fw-medium mb-0 editable-text">
+                Pertama kali didirikan pada awal tahun <strong>2000-an</strong> sebagai usaha perorangan bernama <strong>UD Magnum Computer</strong>. Seiring keberhasilan dan perkembangan usahanya, perusahaan melakukan ekspansi serta mengubah badan usahanya menjadi <strong>CV Magnum Solusion</strong> yang fokus pada bidang Teknologi Informasi (TI).
+              </p>
+</div>
+</div>
+<!-- Kanan: Visi & 3 Misi -->
+<div class="col-lg-7 d-flex flex-column gap-3">
+<div class="neo-card bg-neo-yellow">
+<div class="d-flex align-items-center gap-3 mb-2">
+<div class="icon-square bg-white"><i class="bi bi-eye-fill text-neo-blue"></i></div>
+<div>
+<span class="text-uppercase fw-extrabold small">2.2.1 Visi Perusahaan</span>
+<h4 class="card-heading-lg mb-0">Arah Utama CV Magnum Solusion</h4>
+</div>
+</div>
+<p class="body-lg fw-bold mb-0 editable-text">
+                “Menjadi perusahaan terdepan dan terpercaya dalam menyediakan solusi teknologi informasi dan komunikasi.”
+              </p>
+</div>
+<div class="neo-card bg-white flex-grow-1 d-flex flex-column justify-content-between">
+<h4 class="card-heading-lg mb-3"><i class="bi bi-flag-fill text-neo-coral me-2"></i>2.2.2 Misi Perusahaan (3 Pilar)</h4>
+<div class="d-flex flex-column gap-3 flex-grow-1 justify-content-center">
+<div class="neo-card-sm bg-soft-blue d-flex align-items-center gap-3">
+<span class="badge bg-neo-blue border border-2 border-dark fs-6">01</span>
+<span class="small fw-bold editable-text">Menerapkan teknologi yang tepat guna untuk memberikan hasil dan nilai investasi yang maksimal bagi klien.</span>
+</div>
+<div class="neo-card-sm bg-soft-mint d-flex align-items-center gap-3">
+<span class="badge bg-neo-mint border border-2 border-dark fs-6">02</span>
+<span class="small fw-bold editable-text">Menyediakan solusi teknologi informasi yang efektif dan efisien sesuai kebutuhan mitra.</span>
+</div>
+<div class="neo-card-sm bg-soft-coral d-flex align-items-center gap-3">
+<span class="badge bg-neo-coral border border-2 border-dark fs-6">03</span>
+<span class="small fw-bold editable-text">Berkomitmen terus mengembangkan pengetahuan dan kinerja di bidang teknologi informasi secara berkelanjutan.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Bab II (2.1 – 2.3) — Sejarah, Visi, Misi &amp; Logo</span>
+<span>Slide 03 / 20</span>
+</div>
+</section>
+<!-- =========================================================
+         SLIDE 04: BAB II — STRUKTUR ORGANISASI (INTERACTIVE ACCORDION)
+         ========================================================= -->
+<section class="slide" data-slide="6" data-title="Bab II: Struktur Organisasi &amp; Divisi">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-purple">06 • Bab II (2.4) — Struktur Organisasi</span>
+<span class="fw-bold small"><i class="bi bi-hand-index-thumb-fill text-neo-blue me-1"></i> Seluruh divisi dan uraian tugas ditampilkan sejak awal</span>
+</div>
+<div class="slide-body">
+<div class="d-flex flex-wrap justify-content-between align-items-end mb-3 gap-2 flex-shrink-0">
+<div>
+<h2 class="slide-title mb-1">Struktur Organisasi &amp; Pembagian Tugas</h2>
+<p class="fw-medium mb-0 small" style="color: var(--ink-muted);">6 divisi utama CV Magnum Solusion (Gambar 2.2) — klik tiap kartu untuk detail tanggung jawab.</p>
+</div>
+<button class="btn-neo bg-white text-dark py-2 px-3 small" onclick="toggleAllAccordions()">
+<i class="bi bi-arrows-collapse"></i> Tutup / Buka Semua
+          </button>
+</div>
+<div class="row g-3 stretch-row">
+<!-- Divisi 1: Direktur -->
+<div class="col-md-6">
+<div class="accordion-neo-card open" onclick="toggleAccordion(this)">
+<div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center gap-3">
+<div class="icon-square bg-neo-coral"><i class="bi bi-person-fill-gear"></i></div>
+<div>
+<div class="card-heading-lg">1. Direktur / Pimpinan</div>
+<div class="small fw-bold text-neo-coral">Pande Putu Gede Sudiara, ST</div>
+</div>
+</div>
+<i class="bi bi-chevron-down fw-bold accordion-chevron"></i>
+</div>
+<div class="accordion-detail editable-text">
+                Memimpin, mengarahkan, dan mengawasi seluruh kegiatan operasional &amp; strategis perusahaan, mengambil keputusan utama, menjalin kemitraan bisnis, serta memantau kinerja setiap divisi.
+              </div>
+</div>
+</div>
+<!-- Divisi 2: Programmer & Development (HIGHLIGHT DIVISI PKL) -->
+<div class="col-md-6">
+<div class="accordion-neo-card highlight-div open" onclick="toggleAccordion(this)">
+<div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center gap-3">
+<div class="icon-square bg-neo-blue"><i class="bi bi-code-square"></i></div>
+<div>
+<div class="card-heading-lg">2. Programmer &amp; Development <span class="badge bg-neo-ink ms-1">DIVISI PKL</span></div>
+<div class="small fw-bold text-neo-blue">Andy Giller (Pembimbing Industri)</div>
+</div>
+</div>
+<i class="bi bi-chevron-down fw-bold accordion-chevron"></i>
+</div>
+<div class="accordion-detail editable-text">
+                Merancang, mengembangkan, menguji (<em>testing</em>), dan memelihara sistem maupun aplikasi berbasis web sesuai kebutuhan proyek perusahaan dan permintaan klien.
+              </div>
+</div>
+</div>
+<!-- Divisi 3: HR & Accounting -->
+<div class="col-md-6">
+<div class="accordion-neo-card open" onclick="toggleAccordion(this)">
+<div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center gap-3">
+<div class="icon-square bg-soft-mint"><i class="bi bi-calculator-fill"></i></div>
+<div>
+<div class="card-heading-lg">3. Human Resources &amp; Accounting</div>
+<div class="small fw-bold text-muted">Ni Made Wawia</div>
+</div>
+</div>
+<i class="bi bi-chevron-down fw-bold accordion-chevron"></i>
+</div>
+<div class="accordion-detail editable-text">
+                Mengelola sumber daya manusia (kepegawaian), administrasi umum kantor, pembukuan keuangan (<em>accounting</em>), penagihan (AP/AR), perpajakan, dan pengadaan barang (<em>purchasing</em>).
+              </div>
+</div>
+</div>
+<!-- Divisi 4: Pre and Post Sales -->
+<div class="col-md-6">
+<div class="accordion-neo-card open" onclick="toggleAccordion(this)">
+<div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center gap-3">
+<div class="icon-square bg-soft-blue"><i class="bi bi-tools"></i></div>
+<div>
+<div class="card-heading-lg">4. Pre and Post Sales</div>
+<div class="small fw-bold text-muted">Tim Teknis &amp; Implementasi Lapangan</div>
+</div>
+</div>
+<i class="bi bi-chevron-down fw-bold accordion-chevron"></i>
+</div>
+<div class="accordion-detail editable-text">
+<strong>Pre Sales:</strong> Analisis kebutuhan teknis klien &amp; konsultasi solusi (jaringan IT &amp; BMS). <strong>Post Sales:</strong> Implementasi proyek lapangan, <em>maintenance</em>, <em>support</em>, dan administrasi pasca-penjualan.
+              </div>
+</div>
+</div>
+<!-- Divisi 5: Sales -->
+<div class="col-md-6">
+<div class="accordion-neo-card open" onclick="toggleAccordion(this)">
+<div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center gap-3">
+<div class="icon-square bg-soft-coral"><i class="bi bi-briefcase-fill"></i></div>
+<div>
+<div class="card-heading-lg">5. Sales</div>
+<div class="small fw-bold text-muted">Project, Retail &amp; Government Sales</div>
+</div>
+</div>
+<i class="bi bi-chevron-down fw-bold accordion-chevron"></i>
+</div>
+<div class="accordion-detail editable-text">
+                Memasarkan produk dan layanan perusahaan (skala proyek, ritel, maupun instansi pemerintah), mencari peluang pasar baru, menyusun penawaran harga, dan menjaga hubungan klien.
+              </div>
+</div>
+</div>
+<!-- Divisi 6: Marketing & Communication -->
+<div class="col-md-6">
+<div class="accordion-neo-card open" onclick="toggleAccordion(this)">
+<div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center gap-3">
+<div class="icon-square bg-soft-purple"><i class="bi bi-megaphone-fill"></i></div>
+<div>
+<div class="card-heading-lg">6. Marketing &amp; Communication</div>
+<div class="small fw-bold text-muted">Branding &amp; Publikasi Digital</div>
+</div>
+</div>
+<i class="bi bi-chevron-down fw-bold accordion-chevron"></i>
+</div>
+<div class="accordion-detail editable-text">
+                Mengelola strategi promosi, komunikasi merek (<em>branding</em>), publikasi konten media sosial, serta meningkatkan citra dan jangkauan pemasaran CV Magnum Solusion.
+              </div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Bab II (2.4) — Struktur Organisasi CV Magnum Solusion</span>
+<span>Slide 04 / 20</span>
+</div>
+</section>
+<!-- =========================================================
+         SLIDE 05: BAB II (2.5) — 11 LAYANAN & JASA (INTERACTIVE FILTER)
+         ========================================================= -->
+<section class="slide" data-slide="7" data-title="Bab II: 11 Layanan &amp; Jasa Perusahaan">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-coral">07 • Bab II (2.5) — Portofolio Layanan</span>
+<span class="fw-bold small">Filter Kategori untuk Menyorot Layanan</span>
+</div>
+<div class="slide-body">
+<div class="d-flex flex-wrap justify-content-between align-items-end mb-3 gap-2 flex-shrink-0">
+<div>
+<h2 class="slide-title mb-1">11 Layanan &amp; Jasa CV Magnum Solusion</h2>
+<p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Seluruh lini solusi IT dan sistem bangunan terintegrasi yang ditawarkan kepada klien.</p>
+</div>
+<div class="neo-tab-group" id="serviceFilters">
+<button class="neo-tab-btn active" onclick="filterServices('all', this)">Semua (11)</button>
+<button class="neo-tab-btn" onclick="filterServices('infra', this)">IT &amp; Cyber (4)</button>
+<button class="neo-tab-btn" onclick="filterServices('hotel', this)">Hospitality &amp; BMS (4)</button>
+<button class="neo-tab-btn" onclick="filterServices('security', this)">Security &amp; AV (3)</button>
+</div>
+</div>
+<div class="row g-3 stretch-row">
+<div class="col-6 col-md-4 col-lg-3">
+<div class="service-chip bg-soft-blue" data-cat="infra">
+<div class="fw-extrabold small text-neo-blue mb-1">01. Infrastructure Services</div>
+<div class="text-muted small">Solusi infrastruktur IT sesuai skala bisnis klien.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-3">
+<div class="service-chip bg-soft-blue" data-cat="infra">
+<div class="fw-extrabold small text-neo-blue mb-1">02. Network Integration</div>
+<div class="text-muted small">Integrasi jaringan handal untuk efisiensi operasional.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-3">
+<div class="service-chip bg-soft-yellow" data-cat="hotel">
+<div class="fw-extrabold small mb-1">03. In-Room Entertainment</div>
+<div class="text-muted small">Perancangan &amp; instalasi MATV serta IPTV perhotelan.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-3">
+<div class="service-chip bg-soft-blue" data-cat="infra">
+<div class="fw-extrabold small text-neo-blue mb-1">04. Communication System</div>
+<div class="text-muted small">Sistem komunikasi terpadu untuk skala kecil hingga besar.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-3">
+<div class="service-chip bg-soft-coral" data-cat="security">
+<div class="fw-extrabold small text-neo-coral mb-1">05. Fire Alarm System</div>
+<div class="text-muted small">Panel tunggal hingga addressable fire alarm gedung bertingkat.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-3">
+<div class="service-chip bg-soft-coral" data-cat="security">
+<div class="fw-extrabold small text-neo-coral mb-1">06. Surveillance (CCTV)</div>
+<div class="text-muted small">Sistem pengawasan keamanan area bisnis hemat biaya.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-3">
+<div class="service-chip bg-soft-coral" data-cat="security">
+<div class="fw-extrabold small text-neo-coral mb-1">07. Sound &amp; Paging System</div>
+<div class="text-muted small">Instalasi sistem audio, video, dan telekonferensi profesional.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-3">
+<div class="service-chip bg-soft-yellow" data-cat="hotel">
+<div class="fw-extrabold small mb-1">08. Room Automation</div>
+<div class="text-muted small">Otomatisasi perangkat ruangan untuk kenyamanan &amp; hemat energi.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-4">
+<div class="service-chip bg-soft-yellow" data-cat="hotel">
+<div class="fw-extrabold small mb-1">09. Hotel Lock / Access Control</div>
+<div class="text-muted small">Kunci pintu otomatis &amp; kontrol akses hotel bintang 1–5.</div>
+</div>
+</div>
+<div class="col-6 col-md-4 col-lg-4">
+<div class="service-chip bg-soft-mint" data-cat="hotel">
+<div class="fw-extrabold small text-neo-mint mb-1">10. Building Management System (BMS)</div>
+<div class="text-muted small">Sistem pengelolaan gedung modern yang efisien &amp; aman.</div>
+</div>
+</div>
+<div class="col-12 col-md-4 col-lg-4">
+<div class="service-chip bg-soft-purple" data-cat="infra">
+<div class="fw-extrabold small text-neo-purple mb-1">11. Cyber Security</div>
+<div class="text-muted small">Perlindungan data &amp; jaringan organisasi dari ancaman siber.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Bab II (2.5) — Layanan dan Jasa CV Magnum Solusion</span>
+<span>Slide 05 / 20</span>
+</div>
+</section>
+<!-- =========================================================
+         SLIDE 07: BAB III (3.1 & 3.2.1) — RENCANA & LOGBOOK BULANAN
+         ========================================================= -->
+<section class="slide chapter-divider" data-slide="8" data-title="BAB III — Pelaksanaan Praktik Kerja Lapangan">
+<div class="slide-top-bar"><span class="section-pill bg-neo-yellow">BAB III • SECTION JUDUL</span><span class="fw-bold small">Pengantar bab</span></div>
+<div class="slide-body d-flex flex-column justify-content-center">
+<div class="neo-card bg-white p-4 p-md-5 mx-auto w-100" style="max-width:920px; border-width:3px; box-shadow:8px 8px 0 #172033;">
+<div class="d-flex align-items-center gap-3 mb-4"><span class="badge bg-neo-ink px-3 py-2">BAB III</span><span class="fw-extrabold small text-uppercase" style="letter-spacing:.12em;color:#475569;">Ringkasan Bab</span></div>
+<h1 class="hero-headline mb-3">Pelaksanaan Praktik Kerja Lapangan</h1>
+<p class="body-lg fw-semibold mb-0" style="color:#334155;line-height:1.65;">Bab ini menjelaskan rencana dan kegiatan PKL, alur kerja serta kolaborasi kami, urutan pengerjaan proyek Zigmax dan HMS, tantangan, pengujian website, serta hasil pekerjaan.</p>
+</div></div><div class="slide-footer-bar"><span>BAB III — Pelaksanaan Praktik Kerja Lapangan</span><span>Section Judul</span></div></section>
+<section class="slide" data-slide="9" data-title="Alur Kerja dan Kolaborasi">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-blue">09 • Bab III — Alur Kerja &amp; Kolaborasi</span>
+<span class="fw-bold small">Dua anggota tim mengerjakan proyek secara kolaboratif</span>
+</div>
+<div class="slide-body">
+<div class="mb-3 flex-shrink-0">
+<h2 class="slide-title mb-1">Alur Kerja dan Kolaborasi Tim</h2>
+<p class="fw-semibold mb-0" style="color:#263449;">Pengerjaan dilakukan bersama oleh dua anggota PKL. Kami menyusun kerangka awal, lalu membahas dan merevisi hasilnya bersama.</p>
+</div>
+<div class="row g-3 mb-3">
+<div class="col-md-6"><div class="neo-card bg-soft-blue h-100">
+<div class="d-flex align-items-center gap-2 mb-2"><span class="icon-square bg-neo-blue"><i class="bi bi-people-fill"></i></span><h3 class="card-heading-lg mb-0">Kolaborasi Tim</h3></div>
+<p class="mb-0 fw-semibold" style="color:#172033;line-height:1.55;">Andhika dan Bagas terlibat dalam pengerjaan proyek Zigmax maupun HMS. Pembuatan kerangka awal menjadi titik mulai, kemudian ide, tampilan, dan revisi dibahas bersama—bukan pembagian tugas yang kaku.</p>
+</div></div>
+<div class="col-md-6"><div class="neo-card bg-soft-yellow h-100">
+<div class="d-flex align-items-center gap-2 mb-2"><span class="icon-square bg-neo-coral"><i class="bi bi-arrow-repeat"></i></span><h3 class="card-heading-lg mb-0">Pola Pengerjaan</h3></div>
+<p class="mb-0 fw-semibold" style="color:#172033;line-height:1.55;">Menyusun kerangka → membahas hasil → menerima arahan/evaluasi → melakukan revisi bersama. Proses ini diterapkan pada kedua proyek.</p>
+</div></div>
+</div>
+<h3 class="card-heading-lg mb-2">Urutan Kegiatan Proyek di Bab III</h3>
+<div class="row g-3 stretch-row">
+<div class="col-md-4"><div class="neo-card bg-soft-mint h-100">
+<span class="badge bg-neo-ink mb-2 align-self-start">01 · Proyek pertama</span>
+<h4 class="card-heading-lg mb-2">Website Zigmax</h4>
+<p class="mb-0 fw-semibold" style="color:#172033;line-height:1.5;">Kegiatan proyek diawali dengan pengerjaan website Zigmax, mulai dari penyusunan kerangka hingga proses pembahasan dan revisi bersama.</p>
+</div></div>
+<div class="col-md-4"><div class="neo-card bg-soft-coral h-100">
+<span class="badge bg-neo-ink mb-2 align-self-start">02 · Kegiatan di tengah proyek</span>
+<h4 class="card-heading-lg mb-2">Dokumentasi Bug Website Senior</h4>
+<p class="mb-0 fw-semibold" style="color:#172033;line-height:1.5;">Di tengah pengerjaan Zigmax, kami mendapat tugas mengakses website milik senior melalui IP address, memeriksa website secara menyeluruh, dan mendokumentasikan bug yang ditemukan.</p>
+</div></div>
+<div class="col-md-4"><div class="neo-card bg-soft-yellow h-100">
+<span class="badge bg-neo-ink mb-2 align-self-start">03 · Proyek berikutnya</span>
+<h4 class="card-heading-lg mb-2">Website HMS</h4>
+<p class="mb-0 fw-semibold" style="color:#172033;line-height:1.5;">Setelah itu, pengerjaan berlanjut ke proyek HMS. Kami mempelajari kebutuhan sistem agar isi website yang dibuat sesuai dengan fungsi HMS sebenarnya.</p>
+</div></div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Bab III — Kolaborasi Tim dan Urutan Proyek</span>
+<span>Slide 06 / 20</span>
+</div>
+</section>
+<section class="slide" data-slide="10" data-title="Bab III: Rencana &amp; Logbook Juli – Oktober">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-yellow">10 • Bab III (3.1 &amp; 3.2.1) — Rencana &amp; Logbook</span>
+
+</div>
+<div class="slide-body">
+<div class="d-flex flex-wrap justify-content-between align-items-end mb-3 gap-2 flex-shrink-0">
+<div>
+<h2 class="slide-title mb-0">Rencana Kegiatan &amp; Logbook Bulanan</h2>
+</div>
+<div class="neo-tab-group" data-tab-group="bulan">
+<button class="neo-tab-btn active" onclick="switchTab('bulan', 'juli', this)">Juli (3 Poin)</button>
+<button class="neo-tab-btn" onclick="switchTab('bulan', 'agustus', this)">Agustus (4 Poin)</button>
+<button class="neo-tab-btn" onclick="switchTab('bulan', 'september', this)">September (4 Poin)</button>
+<button class="neo-tab-btn" onclick="switchTab('bulan', 'oktober', this)">Oktober (7 Poin)</button>
+</div>
+</div>
+<div class="row g-4 stretch-row">
+<!-- Kiri: 6 Rencana Kegiatan Siswa (Sub-bab 3.1) -->
+<div class="col-lg-5">
+<div class="neo-card bg-soft-yellow h-100 d-flex flex-column justify-content-between">
+<div class="d-flex align-items-center gap-3 mb-2">
+<div class="icon-square bg-neo-yellow"><i class="bi bi-list-check"></i></div>
+<h4 class="card-heading-lg mb-0">3.1 Rencana Kegiatan Siswa</h4>
+</div>
+<div class="d-flex flex-column gap-2 flex-grow-1 justify-content-center small fw-bold editable-text">
+<div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark">1. Menaati seluruh tata tertib CV Magnum Solusion.</div>
+<div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark">2. Mempelajari alur &amp; sistem kerja profesional perusahaan.</div>
+<div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark">3. Membantu pekerjaan staf &amp; tim divisi terkait.</div>
+<div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark">4. Melaksanakan setiap proyek sesuai arahan pembimbing.</div>
+<div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark">5. Menerapkan ilmu pemrograman yang dipelajari di sekolah.</div>
+<div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark">6. Menambah wawasan &amp; pengalaman nyata di dunia industri.</div>
+</div>
+</div>
+</div>
+<!-- Kanan: Konten Tabel Logbook per Bulan (Sub-bab 3.2.1) -->
+<div class="col-lg-7 d-flex flex-column">
+<!-- Juli -->
+<div class="tab-pane-box active" id="bulan-juli">
+<div class="neo-card bg-soft-blue h-100 d-flex flex-column justify-content-between">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h4 class="card-heading-lg mb-0">Tabel 3.1 — Ringkasan Bulan Juli 2026</h4>
+<span class="badge bg-neo-blue border border-2 border-dark">Bulan 01</span>
+</div>
+<div class="d-flex flex-column gap-3 flex-grow-1 justify-content-center body-lg fw-semibold editable-text">
+<div class="neo-card-sm bg-white"><strong>1.</strong> Pengarahan awal serta perkenalan dengan pimpinan dan staf di CV Magnum Solusion.</div>
+<div class="neo-card-sm bg-white"><strong>2.</strong> Pengenalan lingkungan kerja, penyesuaian diri, dan orientasi tugas dasar perkantoran.</div>
+<div class="neo-card-sm bg-white"><strong>3.</strong> Mempelajari alur kerja operasional harian di kantor.</div>
+</div>
+</div>
+</div>
+<!-- Agustus -->
+<div class="tab-pane-box" id="bulan-agustus">
+<div class="neo-card bg-soft-coral h-100 d-flex flex-column justify-content-between">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h4 class="card-heading-lg mb-0">Tabel 3.2 — Ringkasan Bulan Agustus 2026</h4>
+<span class="badge bg-neo-coral border border-2 border-dark">Bulan 02</span>
+</div>
+<div class="d-flex flex-column gap-2 flex-grow-1 justify-content-center small fw-semibold editable-text">
+<div class="neo-card-sm bg-white"><strong>1.</strong> Menganalisis struktur website yang dibuat oleh Senior di DU/DI.</div>
+<div class="neo-card-sm bg-white"><strong>2.</strong> Pengenalan dasar-dasar perangkat lunak dan tools desain antarmuka (<em>UI/UX Design</em>).</div>
+<div class="neo-card-sm bg-white"><strong>3.</strong> Praktik membuat dan mengembangkan halaman website.</div>
+<div class="neo-card-sm bg-white"><strong>4.</strong> Mengikuti arahan pembimbing industri terkait proyek pengerjaan desain di kantor.</div>
+</div>
+</div>
+</div>
+<!-- September -->
+<div class="tab-pane-box" id="bulan-september">
+<div class="neo-card bg-soft-yellow h-100 d-flex flex-column justify-content-between">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h4 class="card-heading-lg mb-0">Tabel 3.3 — Ringkasan Bulan September 2026</h4>
+<span class="badge bg-neo-yellow border border-2 border-dark">Bulan 03</span>
+</div>
+<div class="d-flex flex-column gap-2 flex-grow-1 justify-content-center small fw-semibold editable-text">
+<div class="neo-card-sm bg-white"><strong>1.</strong> Pengenalan terhadap aplikasi/sistem perangkat lunak yang sedang dikembangkan oleh kantor.</div>
+<div class="neo-card-sm bg-white"><strong>2.</strong> Membantu melakukan pengujian (<em>testing</em>) fungsi dasar pada sistem aplikasi kantor.</div>
+<div class="neo-card-sm bg-white"><strong>3.</strong> Mencatat dan melaporkan hasil pengujian fungsi kepada pembimbing lapangan.</div>
+<div class="neo-card-sm bg-white"><strong>4.</strong> Membuat mockup desain website baru untuk DU/DI.</div>
+</div>
+</div>
+</div>
+<!-- Oktober -->
+<div class="tab-pane-box" id="bulan-oktober">
+<div class="neo-card bg-soft-mint h-100 d-flex flex-column justify-content-between">
+<div class="d-flex justify-content-between align-items-center mb-2">
+<h4 class="card-heading-lg mb-0">Tabel 3.4 — Ringkasan Bulan Oktober 2026</h4>
+<span class="badge bg-neo-mint border border-2 border-dark">Bulan 04</span>
+</div>
+<div class="row g-2 flex-grow-1 align-items-stretch small fw-semibold editable-text">
+<div class="col-md-6"><div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark h-100 d-flex align-items-center"><span><strong>1.</strong> Mengimplementasi desain mockup menjadi kodingan.</span></div></div>
+<div class="col-md-6"><div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark h-100 d-flex align-items-center"><span><strong>2.</strong> Pengembangan &amp; perbaikan front-end (HTML &amp; CSS).</span></div></div>
+<div class="col-md-6"><div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark h-100 d-flex align-items-center"><span><strong>3.</strong> Evaluasi tugas harian bersama senior di kantor.</span></div></div>
+<div class="col-md-6"><div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark h-100 d-flex align-items-center"><span><strong>4.</strong> Perancangan struktur basis data (database) &amp; integrasi web.</span></div></div>
+<div class="col-md-6"><div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark h-100 d-flex align-items-center"><span><strong>5.</strong> Membangun fungsi &amp; logika pemrograman sisi server (back-end).</span></div></div>
+<div class="col-md-6"><div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark h-100 d-flex align-items-center"><span><strong>6.</strong> Pengembangan fitur CRUD agar admin kelola konten mandiri.</span></div></div>
+<div class="col-12"><div class="p-2 px-3 bg-white rounded-3 border border-2 border-dark h-100 d-flex align-items-center"><span><strong>7.</strong> Penyusunan laporan PKL bulanan &amp; akhir.</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Bab III (3.1 &amp; 3.2.1) — Rencana Kegiatan &amp; Logbook Bulanan</span>
+<span>Slide 07 / 20</span>
+</div>
+</section>
+<!-- =========================================================
+         SLIDE 08: SHOWCASE HASIL WEBSITE & CMS (3 TAB MODUL)
+         ========================================================= -->
+<section class="slide" data-slide="11" data-title="Pengenalan Proyek Zigmax dan HMS">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-mint">11 • Bab III — Pengenalan Proyek</span>
+<span class="fw-bold small">Preview 3 Modul Website (Foto 03, 04, 05)</span>
+</div>
+<div class="slide-body">
+<div class="row g-4 align-items-stretch stretch-row">
+<!-- Kiri: Browser Showcase Interaktif -->
+<div class="col-lg-7 d-flex flex-column justify-content-center">
+<div class="browser-frame">
+<div class="browser-bar flex-wrap gap-2">
+<div class="browser-dots">
+<span style="background: #FF5E3A;"></span>
+<span style="background: #FFD60A;"></span>
+<span style="background: #10B981;"></span>
+</div>
+<div class="d-flex gap-1">
+<button class="neo-tab-btn py-1 px-3 active" onclick="switchShowcase('beranda', this)" style="font-size: 0.84rem;">Foto 03: Beranda</button>
+<button class="neo-tab-btn py-1 px-3" onclick="switchShowcase('cms', this)" style="font-size: 0.84rem;">Foto 04: CMS Member</button>
+<button class="neo-tab-btn py-1 px-3" onclick="switchShowcase('profil', this)" style="font-size: 0.84rem;">Foto 05: About &amp; Kegiatan</button>
+</div>
+</div>
+<div class="bg-light">
+<img alt="Showcase Hasil Website" class="img-fluid w-100" id="showcaseImg" onclick="zoomCurrentShowcase()" src="https://placehold.co/900x480/2563EB/FFFFFF?text=Slot+Foto+03:+Halaman+Beranda+(index.php)+%26+Katalog+Produk" style="aspect-ratio: 16/9.2; object-fit: cover; cursor: pointer;"/>
+<div class="photo-caption-bar">
+<span class="editable-text" id="showcaseCaption"><i class="bi bi-display text-neo-blue me-1"></i> Foto 03: Halaman Beranda (index.php) dengan Banner Slicing &amp; Katalog Produk</span>
+<button class="badge bg-neo-yellow border border-2 border-dark" onclick="zoomCurrentShowcase()">Perbesar</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Kanan: Ringkasan Fitur & Tech Stack -->
+<div class="col-lg-5 d-flex flex-column justify-content-between">
+<div>
+<h2 class="slide-title mb-2">Hasil Karya &amp; Fitur Website</h2>
+<p class="small fw-medium mb-3 editable-text" style="color: var(--ink-muted);">
+                Website dikembangkan dengan memperhatikan tampilan publik serta pengelolaan konten sederhana melalui CMS.
+              </p>
+</div>
+<div class="d-flex flex-column gap-3 flex-grow-1 justify-content-center mb-3">
+<div class="neo-card-sm bg-soft-yellow">
+<div class="fw-extrabold small"><i class="bi bi-house-door-fill text-neo-blue me-1"></i> Halaman Publik Responsif</div>
+<div class="small fw-medium editable-text">Halaman publik dirancang agar susunan konten tetap rapi, nyaman dibaca, dan menyesuaikan ukuran layar, baik saat dibuka melalui desktop maupun perangkat mobile.</div>
+</div>
+<div class="neo-card-sm bg-soft-blue">
+<div class="fw-extrabold small"><i class="bi bi-shield-lock-fill text-neo-coral me-1"></i> CMS Sederhana</div>
+<div class="small fw-medium editable-text">Halaman CMS digunakan untuk mengelola bagian konten yang sudah tersedia, terutama teks dan ikon.</div>
+</div>
+<div class="neo-card-sm bg-soft-mint">
+<div class="fw-extrabold small"><i class="bi bi-database-fill-gear text-neo-mint me-1"></i> Pengelolaan Data Produk Dinamis</div>
+<div class="small fw-medium editable-text">CMS yang dikembangkan saat ini memungkinkan pengubahan teks dan ikon pada konten website. Fitur untuk menambahkan konten baru belum tersedia.</div>
+</div>
+</div>
+<div class="d-flex flex-wrap gap-2">
+<span class="badge bg-neo-coral border border-2 border-dark rounded-pill fw-extrabold">HTML5 &amp; CSS3</span>
+<span class="badge bg-neo-blue border border-2 border-dark rounded-pill fw-extrabold">JavaScript &amp; Bootstrap</span>
+<span class="badge bg-neo-yellow border border-2 border-dark rounded-pill fw-extrabold">PHP &amp; MySQL</span>
+
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Klik tombol tab di atas browser untuk melihat Foto 03, 04, dan 05</span>
+<span>Slide 08 / 20</span>
+</div>
+</section>
+<!-- =========================================================
+         SLIDE 09: GALERI DOKUMENTASI KEGIATAN LAPANGAN
+         ========================================================= -->
+<section class="slide" data-slide="12" data-title="Proses Pengembangan Website">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-purple">12 • Bab III — Proses Pengembangan Website</span>
+<span class="fw-bold small">Klik Foto untuk Memperbesar &amp; Membaca Keterangan Lengkap</span>
+</div>
+<div class="slide-body">
+<div class="mb-3 flex-shrink-0">
+<h2 class="slide-title mb-1">Dokumentasi Kegiatan Lapangan</h2>
+<p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Rekam jejak aktivitas harian tim PKL (Andhika &amp; Bagas) di CV Magnum Solusion.</p>
+</div>
+<div class="row g-4 stretch-row">
+<!-- Foto 06 -->
+<div class="col-md-4">
+<div class="photo-slot-card h-100 d-flex flex-column justify-content-between" onclick="openDetailModal('Foto 06: Sesi Pengarahan &amp; Evaluasi Pembimbing', 'https://placehold.co/900x560/2563EB/FFFFFF?text=Foto+06:+Evaluasi+Bersama+Pembimbing+Lapangan', 'Sesi pengarahan awal dan peninjauan progres (review/revisi) desain antarmuka serta fungsionalitas website bersama pembimbing industri di divisi Programmer &amp; Development.')">
+<div>
+<img alt="Foto 06" class="img-fluid w-100" src="https://placehold.co/600x360/2563EB/FFFFFF?text=Slot+Foto+06:+Diskusi+%26+Review+Mentor" style="height: 235px; object-fit: cover;"/>
+<div class="p-3">
+<span class="badge bg-neo-blue border border-2 border-dark mb-2">Foto 06 • Bimbingan Industri</span>
+<h4 class="card-heading-lg mb-2 editable-text">Evaluasi &amp; Review Proyek</h4>
+<p class="small text-muted fw-medium mb-0 editable-text">Diskusi rutin bersama pembimbing lapangan terkait penyesuaian tata letak dan fitur CMS.</p>
+</div>
+</div>
+<div class="photo-caption-bar">
+<span>Divisi Programmer &amp; Dev</span>
+<span class="badge bg-neo-yellow border border-2 border-dark">Zoom</span>
+</div>
+</div>
+</div>
+<!-- Foto 07 -->
+<div class="col-md-4">
+<div class="photo-slot-card h-100 d-flex flex-column justify-content-between" onclick="openDetailModal('Foto 07: Pengujian Sistem (Software Testing)', 'https://placehold.co/900x560/FF5E3A/FFFFFF?text=Foto+07:+Pengujian+Aplikasi+Kantor', 'Melakukan pemeriksaan menyeluruh pada website senior melalui alamat IP dan mendokumentasikan bug yang ditemukan.')">
+<div>
+<img alt="Foto 07" class="img-fluid w-100" src="https://placehold.co/600x360/FF5E3A/FFFFFF?text=Slot+Foto+07:+Software+Testing+Aplikasi" style="height: 235px; object-fit: cover;"/>
+<div class="p-3">
+<span class="badge bg-neo-coral border border-2 border-dark mb-2">Foto 07 • Quality Assurance</span>
+<h4 class="card-heading-lg mb-2 editable-text">Pengujian Website Senior</h4>
+<p class="small text-muted fw-medium mb-0 editable-text">Mengakses website senior melalui alamat IP, memeriksa tampilan dan fungsi secara menyeluruh, lalu mencatat bug yang ditemukan.</p>
+</div>
+</div>
+<div class="photo-caption-bar">
+<span>Bulan September 2026</span>
+<span class="badge bg-neo-yellow border border-2 border-dark">Zoom</span>
+</div>
+</div>
+</div>
+<!-- Foto 08 -->
+<div class="col-md-4">
+<div class="photo-slot-card h-100 d-flex flex-column justify-content-between" onclick="openDetailModal('Foto 08: Implementasi dan Penyempurnaan Website', 'https://placehold.co/900x560/10B981/141414?text=Foto+08:+Implementasi+Website', 'Proses pengodean dan penyempurnaan halaman website sesuai kebutuhan proyek.')">
+<div>
+<img alt="Foto 08" class="img-fluid w-100" src="https://placehold.co/600x360/10B981/141414?text=Slot+Foto+08:+Coding+%26+Deployment+Web" style="height: 235px; object-fit: cover;"/>
+<div class="p-3">
+<span class="badge bg-neo-mint border border-2 border-dark mb-2">Foto 08 • Pengembangan Website</span>
+<h4 class="card-heading-lg mb-2 editable-text">Implementasi Website</h4>
+<p class="small text-muted fw-medium mb-0 editable-text">Implementasi dan penyempurnaan kode website sesuai arahan serta kebutuhan proyek.</p>
+</div>
+</div>
+<div class="photo-caption-bar">
+<span>Bulan Oktober 2026</span>
+<span class="badge bg-neo-yellow border border-2 border-dark">Zoom</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Lampiran Foto Kegiatan Praktik Kerja Lapangan</span>
+<span>Slide 09 / 20</span>
+</div>
+</section><section class="slide" data-slide="13" data-title="Tantangan dan Solusi"><div class="slide-top-bar"><span class="section-pill bg-neo-coral">13 • Bab III — Tantangan &amp; Solusi</span><span class="fw-bold small">Materi akan dilengkapi berdasarkan dokumentasi proyek</span></div><div class="slide-body"><div class="mb-3 flex-shrink-0"><h2 class="slide-title mb-1">Tantangan dalam Pengerjaan Proyek</h2><p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Dalam pengerjaan Zigmax dan HMS, kami menyesuaikan diri dengan kebutuhan serta tujuan masing-masing website.</p></div><div class="row g-3 stretch-row"><div class="col-md-4"><div class="neo-card bg-soft-yellow h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Memahami Kebutuhan Proyek</h4><p class="small fw-semibold mb-0">Mempelajari tujuan dan kebutuhan website yang dikerjakan agar pengembangan tidak hanya berfokus pada tampilan.</p></div></div><div class="col-md-4"><div class="neo-card bg-soft-blue h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Menyesuaikan Isi Website</h4><p class="small fw-semibold mb-0">Menyusun informasi yang sesuai dengan karakter dan tujuan masing-masing proyek, termasuk website profil Zigmax dan website promosi HMS.</p></div></div><div class="col-md-4"><div class="neo-card bg-soft-mint h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Pendalaman HMS</h4><p class="small fw-semibold mb-0">Pada proyek HMS, kami perlu memahami lebih dalam pengertian Hotel Maintenance System, cara kerja, serta tujuan penggunaannya agar konten promosi tetap akurat.</p></div></div></div></div><div class="slide-footer-bar"><span>Tantangan dan Solusi</span><span>Slide 10 / 20</span></div></section><section class="slide" data-slide="14" data-title="Software Testing"><div class="slide-top-bar"><span class="section-pill bg-neo-coral">14 • Bab III — Pengujian Website</span><span class="fw-bold small">Materi akan dilengkapi berdasarkan dokumentasi proyek</span></div><div class="slide-body"><div class="mb-3 flex-shrink-0"><h2 class="slide-title mb-1">Pengujian Website melalui IP Address</h2><p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Kami mengakses website senior melalui alamat IP, memeriksa halaman dan fungsi website, lalu mencatat kendala yang ditemukan.</p></div><div class="row g-3 stretch-row"><div class="col-md-4"><div class="neo-card bg-soft-yellow h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Akses Website</h4><p class="small fw-semibold mb-0">Membuka website melalui alamat IP yang diberikan.</p></div></div><div class="col-md-4"><div class="neo-card bg-soft-blue h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Pemeriksaan</h4><p class="small fw-semibold mb-0">Menguji website secara keseluruhan dan mengamati kendala yang muncul.</p></div></div><div class="col-md-4"><div class="neo-card bg-soft-mint h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Dokumentasi Bug</h4><p class="small fw-semibold mb-0">Temuan bug dicatat dalam laporan pengujian; rincian menunggu dokumen laporan.</p></div></div></div></div><div class="slide-footer-bar"><span>Software Testing</span><span>Slide 11 / 20</span></div></section><section class="slide" data-slide="15" data-title="Hasil Proyek Zigmax"><div class="slide-top-bar"><span class="section-pill bg-neo-coral">15 • Bab III — Hasil Proyek Zigmax</span><span class="fw-bold small">Materi akan dilengkapi berdasarkan dokumentasi proyek</span></div><div class="slide-body"><div class="mb-3 flex-shrink-0"><h2 class="slide-title mb-1">Hasil Pengembangan Website Zigmax</h2><p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Bagian ini disiapkan untuk menampilkan halaman dan hasil pekerjaan pada proyek Zigmax.</p></div><div class="row g-3 stretch-row"><div class="col-md-4"><div class="neo-card bg-soft-yellow h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Tampilan Website</h4><p class="small fw-semibold mb-0">Tempat untuk screenshot halaman yang benar-benar dikerjakan.</p></div></div><div class="col-md-4"><div class="neo-card bg-soft-blue h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Bagian yang Dikembangkan</h4><p class="small fw-semibold mb-0">Akan diisi berdasarkan hasil dan kontribusi yang terkonfirmasi.</p></div></div><div class="col-md-4"><div class="neo-card bg-soft-mint h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Dokumentasi</h4><p class="small fw-semibold mb-0">Masukkan screenshot asli proyek Zigmax.</p></div></div></div></div><div class="slide-footer-bar"><span>Hasil Proyek Zigmax</span><span>Slide 12 / 20</span></div></section><section class="slide" data-slide="16" data-title="Hasil Proyek HMS"><div class="slide-top-bar"><span class="section-pill bg-neo-coral">16 • Bab III — Hasil Proyek HMS</span><span class="fw-bold small">Materi akan dilengkapi berdasarkan dokumentasi proyek</span></div><div class="slide-body"><div class="mb-3 flex-shrink-0"><h2 class="slide-title mb-1">Hasil Pengembangan Website HMS</h2><p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Bagian ini disiapkan untuk menampilkan halaman dan hasil pekerjaan pada proyek HMS.</p></div><div class="row g-3 stretch-row"><div class="col-md-4"><div class="neo-card bg-soft-yellow h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Tampilan Website</h4><p class="small fw-semibold mb-0">Tempat untuk screenshot halaman yang benar-benar dikerjakan.</p></div></div><div class="col-md-4"><div class="neo-card bg-soft-blue h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Bagian yang Dikembangkan</h4><p class="small fw-semibold mb-0">Akan diisi berdasarkan hasil dan kontribusi yang terkonfirmasi.</p></div></div><div class="col-md-4"><div class="neo-card bg-soft-mint h-100 d-flex flex-column justify-content-center"><h4 class="card-heading-lg mb-2">Dokumentasi</h4><p class="small fw-semibold mb-0">Masukkan screenshot asli proyek HMS.</p></div></div></div></div><div class="slide-footer-bar"><span>Hasil Proyek HMS</span><span>Slide 13 / 20</span></div></section>
+<!-- =========================================================
+         SLIDE 10: SESI TANYA JAWAB (Q&A SESSION) SEBELUM KESIMPULAN
+         ========================================================= -->
+
+<!-- =========================================================
+         SLIDE 11: BAB IV — KESIMPULAN & SARAN
+         ========================================================= -->
+
+<!-- =========================================================
+         SLIDE 12: HALAMAN TERIMA KASIH (MATUR SUKSMA)
+         ========================================================= -->
+
+<section class="slide" data-slide="17" data-title="Sesi Tanya Jawab (Q&amp;A Session)">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-yellow">17 • Diskusi &amp; Evaluasi Sidang</span>
+<span class="fw-bold small">Interaktif • Klik Tombol Pintas di Bawah Jika Penguji Bertanya</span>
+</div>
+<div class="slide-body align-items-center text-center position-relative">
+<!-- Stiker Dekoratif Neo-Brutalism Melayang -->
+<div class="qa-sticker bg-neo-coral rounded-4 px-4 py-2 d-none d-md-inline-flex" style="position: absolute; top: 6%; left: 5%; transform: rotate(-10deg); font-size: 1.7rem;">
+<i class="bi bi-question-lg"></i> Q&amp;A
+        </div>
+<div class="qa-sticker bg-neo-mint rounded-circle d-none d-md-inline-flex" style="position: absolute; top: 10%; right: 6%; width: 78px; height: 78px; transform: rotate(12deg); font-size: 2.3rem;">
+          ?
+        </div>
+<div class="qa-sticker bg-neo-blue rounded-pill px-4 py-2 d-none d-md-inline-flex" style="position: absolute; bottom: 12%; left: 7%; transform: rotate(6deg); font-size: 0.95rem;">
+<i class="bi bi-stars me-1"></i> DISKUSI TERBUKA
+        </div>
+<div class="qa-sticker bg-neo-purple rounded-4 px-4 py-2 d-none d-md-inline-flex" style="position: absolute; bottom: 14%; right: 7%; transform: rotate(-7deg); font-size: 1.5rem;">
+<i class="bi bi-mic-fill"></i>
+</div>
+<!-- Konten Utama di Tengah Layar -->
+<div class="neo-card bg-white px-4 px-md-5 py-4 py-md-5 w-100" style="max-width: 880px; box-shadow: var(--shadow-hard-lg);">
+<div class="d-inline-flex align-items-center gap-2 bg-neo-yellow border border-2 border-dark rounded-pill px-4 py-1 mb-3 fw-extrabold small text-uppercase">
+<i class="bi bi-broadcast"></i> Open Discussion • Sidang Laporan PKL
+          </div>
+<h1 class="qa-display-title mb-3 editable-text">
+            Sesi <span class="highlight-marker">Tanya Jawab</span>
+</h1>
+<p class="body-lg fw-medium mb-4 mx-auto editable-text" style="color: var(--ink-muted); max-width: 650px;">
+            Kami persilakan kepada Bapak/Ibu Tim Penguji untuk memberikan pertanyaan, masukan, maupun evaluasi terkait proyek dan laporan PKL kami.
+          </p>
+<!-- Tombol Pintas Cepat untuk Menjawab Pertanyaan Penguji -->
+<div class="pt-3 border-top border-2 border-dark">
+<div class="small fw-extrabold text-uppercase text-muted mb-3">Pintasan Cepat Referensi Materi:</div>
+<div class="d-flex flex-wrap justify-content-center gap-2">
+<button class="btn-neo bg-soft-blue py-2 px-3 small" onclick="goToSlide(6)">
+<i class="bi bi-diagram-3-fill text-neo-blue"></i> Struktur Organisasi
+              </button>
+<button class="btn-neo bg-soft-coral py-2 px-3 small" onclick="goToSlide(10)">
+<i class="bi bi-cpu-fill text-neo-coral"></i> 5 Tahap Teknis
+              </button>
+<button class="btn-neo bg-soft-mint py-2 px-3 small" onclick="goToSlide(15)">
+<i class="bi bi-window-sidebar text-neo-mint"></i> Preview Website &amp; CMS
+              </button>
+<button class="btn-neo bg-neo-yellow py-2 px-3 small" onclick="goToSlide(19)">
+<span>Lanjut ke Kesimpulan</span> <i class="bi bi-arrow-right-circle-fill"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Tim Penyusun: I Gede Putra Andhika Pratama &amp; Bagas</span>
+<span>Slide 17 / 20</span>
+</div>
+</section>
+<section class="slide chapter-divider" data-slide="18" data-title="BAB IV — Kesimpulan dan Saran">
+<div class="slide-top-bar"><span class="section-pill bg-neo-mint">BAB IV • SECTION JUDUL</span><span class="fw-bold small">Pengantar bab</span></div>
+<div class="slide-body d-flex flex-column justify-content-center">
+<div class="neo-card bg-white p-4 p-md-5 mx-auto w-100" style="max-width:920px; border-width:3px; box-shadow:8px 8px 0 #172033;">
+<div class="d-flex align-items-center gap-3 mb-4"><span class="badge bg-neo-ink px-3 py-2">BAB IV</span><span class="fw-extrabold small text-uppercase" style="letter-spacing:.12em;color:#475569;">Ringkasan Bab</span></div>
+<h1 class="hero-headline mb-3">Kesimpulan dan Saran</h1>
+<p class="body-lg fw-semibold mb-0" style="color:#334155;line-height:1.65;">Bab ini merangkum pengalaman dan hasil pembelajaran selama PKL, kemudian menyampaikan saran sebagai bahan evaluasi bagi pihak terkait.</p>
+</div></div><div class="slide-footer-bar"><span>BAB IV — Kesimpulan dan Saran</span><span>Section Judul</span></div></section>
+<section class="slide" data-slide="19" data-title="Bab IV: Kesimpulan &amp; Saran">
+<div class="slide-top-bar">
+<span class="section-pill bg-neo-coral">19 • Bab IV — Penutup Laporan</span>
+
+</div>
+<div class="slide-body">
+<div class="mb-3 flex-shrink-0">
+<h2 class="slide-title mb-1">Kesimpulan &amp; Saran</h2>
+<p class="fw-medium mb-0 small" style="color: var(--ink-muted);">Evaluasi hasil pembelajaran selama 4 bulan Praktik Kerja Lapangan di CV Magnum Solusion.</p>
+</div>
+<div class="row g-4 stretch-row">
+<!-- Kiri: 4.1 Kesimpulan -->
+<div class="col-lg-6">
+<div class="neo-card bg-soft-yellow h-100 d-flex flex-column justify-content-between">
+<h3 class="card-heading-lg mb-3"><i class="bi bi-check-circle-fill text-neo-mint me-2"></i>4.1 Kesimpulan</h3>
+<div class="d-flex flex-column gap-3 flex-grow-1 justify-content-center">
+<div class="neo-card-sm bg-white small fw-medium editable-text">
+<strong>Peningkatan Hard Skill:</strong> Menguasai alur pengembangan web dari slicing desain, coding HTML, CSS, JavaScript, PHP, pengelolaan database MySQL, serta pengembangan dan penyempurnaan website.
+                </div>
+<div class="neo-card-sm bg-white small fw-medium editable-text">
+<strong>Pengalaman Software Testing:</strong> Terlatih menguji fungsi dasar aplikasi kantor dan mendokumentasikan laporan evaluasi secara sistematis.
+                </div>
+<div class="neo-card-sm bg-white small fw-medium editable-text">
+<strong>Peningkatan Soft Skill:</strong> Melatih <em>problem solving</em>, adaptasi budaya kerja profesional, serta bekerja berdasarkan revisi pembimbing industri.
+                </div>
+</div>
+</div>
+</div>
+<!-- Kanan: 4.2 Saran -->
+<div class="col-lg-6">
+<div class="neo-card bg-soft-blue h-100 d-flex flex-column justify-content-between">
+<div>
+<h3 class="card-heading-lg mb-3"><i class="bi bi-lightbulb-fill text-neo-blue me-2"></i>4.2 Saran</h3>
+<div class="d-flex flex-column gap-3">
+<div class="neo-card-sm bg-white small fw-medium editable-text">
+<strong>4.2.1 Bagi CV Magnum Solusion:</strong> Penjadwalan sesi peninjauan (<em>review/revisi</em>) pekerjaan peserta PKL dapat diatur lebih berkala di tengah kesibukan proyek internal kantor, serta mempertahankan bimbingan teknis yang sudah sangat baik.
+                  </div>
+<div class="neo-card-sm bg-white small fw-medium editable-text">
+<strong>4.2.2 Bagi SMK TI Bali Global Denpasar:</strong> Terus memperbarui kurikulum praktik pemrograman web dan <em>software testing</em> sesuai perkembangan teknologi DU/DI, serta meningkatkan koordinasi berkala dengan pihak industri.
+                  </div>
+</div>
+</div>
+<div class="mt-3 text-end">
+<button class="btn-neo bg-neo-blue py-2 px-4 small" onclick="goToSlide(20)">
+<span>Ke Halaman Penutup</span>
+<i class="bi bi-arrow-right-circle-fill"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Bab IV (4.1 &amp; 4.2) — Kesimpulan dan Saran</span>
+<span>Slide 19 / 20</span>
+</div>
+</section><section class="slide" data-slide="20" data-title="Terima Kasih / Penutup Akhir">
+<div class="slide-top-bar">
+<div class="brand-pill">
+<img alt="Logo SMK TI" class="logo-avatar" src="https://placehold.co/80x80/2563EB/FFFFFF?text=TI"/>
+<img alt="Logo Magnum Solusion" class="logo-avatar" src="https://placehold.co/80x80/FF5E3A/FFFFFF?text=MS" style="margin-left: -14px;"/>
+<span class="fw-extrabold text-uppercase">SMK TI Bali Global Denpasar</span>
+</div>
+<span class="section-pill bg-neo-mint">Selesai • 2026</span>
+</div>
+<div class="slide-body align-items-center text-center">
+<div class="neo-card bg-neo-blue px-4 px-md-5 py-4 py-md-5 position-relative w-100" style="max-width: 920px; box-shadow: var(--shadow-hard-lg);">
+<div class="d-inline-flex align-items-center gap-2 bg-neo-yellow border border-2 border-dark rounded-pill px-4 py-1 mb-3 fw-extrabold small text-uppercase" style="transform: rotate(-1.5deg);">
+<i class="bi bi-heart-fill text-neo-coral"></i> Om Shanti, Shanti, Shanti Om
+          </div>
+<h1 class="qa-display-title mb-3 editable-text" style="color: #FFFFFF;">
+            Terima Kasih &amp; <span class="highlight-marker">Matur Suksma</span>
+</h1>
+<p class="body-lg fw-medium opacity-95 mb-4 mx-auto editable-text" style="max-width: 680px;">
+            Terima kasih kepada Bapak/Ibu Tim Penguji, Pembimbing Sekolah, serta seluruh jajaran pimpinan dan staf <strong>CV Magnum Solusion</strong> atas bimbingan dan kesempatan selama pelaksanaan Praktik Kerja Lapangan.
+          </p>
+<!-- Rekap Identitas Tim Penyusun -->
+<div class="row g-3 text-start mb-4">
+<div class="col-md-6">
+<div class="neo-card-sm bg-soft-yellow d-flex align-items-center gap-3 h-100">
+<div class="icon-square bg-neo-yellow"><i class="bi bi-people-fill"></i></div>
+<div>
+<div class="text-uppercase fw-bold" style="font-size: 0.75rem; color: var(--ink-muted);">Tim Penyusun Laporan PKL</div>
+<div class="fw-extrabold small editable-text">I Gede Putra Andhika Pratama &amp; Bagas</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="neo-card-sm bg-soft-mint d-flex align-items-center gap-3 h-100">
+<div class="icon-square bg-neo-mint"><i class="bi bi-mortarboard-fill"></i></div>
+<div>
+<div class="text-uppercase fw-bold" style="font-size: 0.75rem; color: var(--ink-muted);">Konsentrasi Keahlian &amp; Sekolah</div>
+<div class="fw-extrabold small editable-text">RPL — SMK TI Bali Global Denpasar</div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex flex-wrap justify-content-center gap-3">
+<button class="btn-neo bg-neo-yellow fs-5" onclick="goToSlide(1)">
+<i class="bi bi-arrow-counterclockwise"></i>
+<span>Kembali ke Slide 01</span>
+</button>
+<button class="btn-neo bg-white text-dark fs-5" onclick="goToSlide(19)">
+<i class="bi bi-chat-dots-fill text-neo-blue"></i>
+<span>Ke Sesi Tanya Jawab</span>
+</button>
+</div>
+</div>
+</div>
+<div class="slide-footer-bar">
+<span>Laporan Praktik Kerja Lapangan • CV Magnum Solusion Denpasar</span>
+<span>Slide 16 / 20</span>
+</div>
+</section></main>
+<!-- =========================================================
+       JUMP MENU POPOVER (DAFTAR ISI CEPAT)
+       ========================================================= -->
+<div class="jump-menu-popover" id="jumpMenuPopover">
+<div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom border-2 border-dark">
+<span class="fw-extrabold small text-uppercase"><i class="bi bi-list-ul me-1"></i> Lompat ke Slide</span>
+<button class="btn btn-sm p-0 border-0 fw-bold" onclick="toggleJumpMenu(false)"><i class="bi bi-x-lg"></i></button>
+</div>
+<div class="d-flex flex-column gap-1" id="jumpMenuList" style="max-height: 310px; overflow-y: auto;"></div>
+</div>
+<!-- =========================================================
+       BOTTOM PRESENTER DOCK
+       ========================================================= -->
+<div class="presenter-dock">
+<button class="dock-btn" id="prevBtn" title="Slide Sebelumnya (Panah Kiri)">
+<i class="bi bi-chevron-left"></i>
+</button>
+<button class="slide-counter-btn" id="slideCounterBtn" onclick="toggleJumpMenu()" title="Klik untuk Buka Daftar Isi Slide">
+<span id="slideCounterText">01 / 16</span>
+<i class="bi bi-chevron-up small"></i>
+</button>
+<button class="dock-btn" id="nextBtn" title="Slide Berikutnya (Panah Kanan / Spasi)">
+<i class="bi bi-chevron-right"></i>
+</button>
+<div class="vr mx-1 opacity-25"></div>
+<button class="dock-btn dock-btn-pill" id="editBtn" title="Ubah Teks Langsung di Layar">
+<i class="bi bi-pencil-fill"></i>
+<span class="d-none d-sm-inline">Edit Teks</span>
+</button>
+<button class="dock-btn bg-neo-yellow" id="fullscreenBtn" title="Tampilan Layar Penuh (Fullscreen)">
+<i class="bi bi-arrows-fullscreen"></i>
+</button>
+</div>
+<!-- =========================================================
+       NEO-BRUTALIST DETAIL MODAL (ZOOM FOTO & KETERANGAN)
+       ========================================================= -->
+<div class="neo-modal-backdrop" id="detailModalBackdrop" onclick="if(event.target === this) closeDetailModal()">
+<div class="neo-modal-box">
+<div class="browser-bar">
+<span class="fw-extrabold small" id="modalTitle">Detail Pratinjau</span>
+<button class="btn btn-sm bg-white border border-2 border-dark rounded-pill px-2 py-0 fw-extrabold" onclick="closeDetailModal()">
+<i class="bi bi-x-lg"></i> Tutup
+        </button>
+</div>
+<div class="bg-light">
+<img alt="Detail Gambar" class="img-fluid w-100" id="modalImg" src="" style="max-height: 55vh; object-fit: cover;"/>
+</div>
+<div class="p-3 bg-white border-top border-2 border-dark">
+<p class="small fw-semibold mb-0" id="modalCaption" style="line-height: 1.55;"></p>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideCounterText = document.getElementById('slideCounterText');
+    const progressFill = document.getElementById('progressFill');
+    const editBtn = document.getElementById('editBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const jumpMenuPopover = document.getElementById('jumpMenuPopover');
+    const jumpMenuList = document.getElementById('jumpMenuList');
+
+    let currentSlide = 1;
+    const totalSlides = slides.length;
+    let isEditing = false;
+
+    // Bangun Daftar Isi di Jump Menu Popover
+    slides.forEach((slideEl, idx) => {
+      const num = idx + 1;
+      const title = slideEl.getAttribute('data-title') || `Slide ${num}`;
+      const item = document.createElement('div');
+      item.className = 'jump-item' + (num === 1 ? ' active' : '');
+      item.innerHTML = `<span class="badge bg-neo-ink">${String(num).padStart(2, '0')}</span><span>${title}</span>`;
+      item.addEventListener('click', () => {
+        goToSlide(num);
+        toggleJumpMenu(false);
+      });
+      jumpMenuList.appendChild(item);
+    });
+
+    function toggleJumpMenu(forceState) {
+      if (typeof forceState === 'boolean') {
+        jumpMenuPopover.classList.toggle('open', forceState);
+      } else {
+        jumpMenuPopover.classList.toggle('open');
+      }
+    }
+
+    function goToSlide(target) {
+      if (target < 1 || target > totalSlides || target === currentSlide) return;
+      slides[currentSlide - 1].classList.remove('active');
+      slides[target - 1].classList.add('active');
+      currentSlide = target;
+      updateUI();
+    }
+
+    function updateUI() {
+      const formattedCurrent = String(currentSlide).padStart(2, '0');
+      const formattedTotal = String(totalSlides).padStart(2, '0');
+      slideCounterText.textContent = `${formattedCurrent} / ${formattedTotal}`;
+
+      const percentage = (currentSlide / totalSlides) * 100;
+      progressFill.style.width = `${percentage}%`;
+
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      const jumpItems = jumpMenuList.querySelectorAll('.jump-item');
+      jumpItems.forEach((el, idx) => {
+        el.classList.toggle('active', idx + 1 === currentSlide);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+    // Navigasi Keyboard
+    document.addEventListener('keydown', (e) => {
+      if (isEditing) return;
+      if (e.key === 'Escape') {
+        toggleJumpMenu(false);
+        closeDetailModal();
+        return;
+      }
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        goToSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goToSlide(currentSlide - 1);
+      }
+    });
+
+    // Tutup Jump Menu jika klik di luar
+    document.addEventListener('click', (e) => {
+      if (!jumpMenuPopover.contains(e.target) && !e.target.closest('#slideCounterBtn')) {
+        toggleJumpMenu(false);
+      }
+    });
+
+    // Interactive Tab Switcher
+    function switchTab(groupName, targetId, btnEl) {
+      const groupButtons = btnEl.parentElement.querySelectorAll('.neo-tab-btn');
+      groupButtons.forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      document.querySelectorAll(`[id^="${groupName}-"]`).forEach(pane => {
+        pane.classList.remove('active');
+      });
+      const activePane = document.getElementById(`${groupName}-${targetId}`);
+      if (activePane) activePane.classList.add('active');
+    }
+
+    // Interactive Accordion (Slide 04)
+    function toggleAccordion(cardEl) {
+      if (isEditing) return;
+      cardEl.classList.toggle('open');
+    }
+
+    let allAccordionsOpen = true;
+    function toggleAllAccordions() {
+      allAccordionsOpen = !allAccordionsOpen;
+      document.querySelectorAll('.accordion-neo-card').forEach(card => {
+        card.classList.toggle('open', allAccordionsOpen);
+      });
+    }
+
+    // Interactive Service Filter (Slide 05)
+    function filterServices(cat, btnEl) {
+      document.querySelectorAll('#serviceFilters .neo-tab-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      document.querySelectorAll('.service-chip').forEach(chip => {
+        if (cat === 'all') {
+          chip.classList.remove('dimmed', 'highlighted');
+        } else if (chip.getAttribute('data-cat') === cat) {
+          chip.classList.remove('dimmed');
+          chip.classList.add('highlighted');
+        } else {
+          chip.classList.add('dimmed');
+          chip.classList.remove('highlighted');
+        }
+      });
+    }
+
+    // Interactive 5-Step Technical Detail (Slide 07)
+    const stepsData = {
+      1: {
+        badge: 'TAHAP 01 / 05',
+        tools: 'Tools: Adobe Photoshop (Slice Tool)',
+        heading: 'Riset Referensi & Perancangan Desain (UI/UX Design)',
+        desc: 'Melakukan pencarian referensi tampilan antarmuka website yang modern dan relevan dengan bidang usaha CV Magnum Solusion, merancang tata letak (layout) visual, serta melakukan pemotongan aset gambar banner menggunakan Slice Tool pada Adobe Photoshop sebelum masuk ke tahap pengodean.',
+        output: 'Mockup desain halaman utama & aset gambar banner siap pakai untuk folder <code>img/</code>.',
+        bg: 'bg-soft-yellow'
+      },
+      2: {
+        badge: 'TAHAP 02 / 05',
+        tools: 'Tools: HTML5, CSS3, JavaScript & Bootstrap',
+        heading: 'Implementasi Desain ke Kode (Front-End Development)',
+        desc: 'Menerjemahkan rancangan desain ke dalam struktur halaman website yang interaktif dan responsif menggunakan HTML, CSS, JavaScript, dan framework Bootstrap di direktori htdocs agar tampilan tetap rapi saat diakses melalui berbagai ukuran layar.',
+        output: 'Halaman antarmuka responsif: <code>index.php</code>, <code>about.html</code>, dan <code>kegiatan.html</code>.',
+        bg: 'bg-soft-blue'
+      },
+      3: {
+        badge: 'TAHAP 03 / 05',
+        tools: 'Tools: PHP, MySQL & XAMPP Control Panel',
+        heading: 'Pengembangan Sistem Manajemen Konten Sederhana (CMS)',
+        desc: 'Membuat database dan tabel di phpMyAdmin, membangun sistem autentikasi (Form Register & Form Login), serta mengembangkan fitur pengelolaan data produk (Create, Read, Update, Delete) menggunakan bahasa pemrograman PHP.',
+        output: 'CMS sederhana untuk mengubah teks dan ikon pada konten yang sudah tersedia.',
+        bg: 'bg-soft-coral'
+      },
+      4: {
+        badge: 'TAHAP 04 / 05',
+        tools: 'Tools: Browser DevTools & Evaluasi Mentor',
+        heading: 'Revisi dan Penyempurnaan (Revision & Debugging)',
+        desc: 'Melakukan evaluasi rutin bersama pembimbing lapangan (Andy Giller) serta mengerjakan berbagai revisi, baik dari segi penyesuaian tata letak desain maupun perbaikan kode (debugging) dan fungsionalitas fitur agar sesuai standar perusahaan.',
+        output: 'Aplikasi bebas bug fungsional dan lolos peninjauan pembimbing industri.',
+        bg: 'bg-soft-mint'
+      },
+      5: {
+        badge: 'TAHAP 05 / 05',
+        tools: 'Tools: Pemeriksaan dan Penyempurnaan Website',
+        heading: 'Penyempurnaan Website',
+        desc: 'Melakukan penyempurnaan pada halaman dan komponen website berdasarkan hasil pengerjaan serta evaluasi.',
+        output: 'Halaman website yang telah disesuaikan dengan kebutuhan proyek.',
+        bg: 'bg-soft-purple'
+      }
+    };
+
+    function selectStep(stepNum, btnEl) {
+      document.querySelectorAll('.step-btn-card').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const data = stepsData[stepNum];
+      const card = document.getElementById('stepDetailCard');
+      card.className = `neo-card ${data.bg} h-100 d-flex flex-column justify-content-between`;
+      document.getElementById('stepBadge').textContent = data.badge;
+      document.getElementById('stepTools').textContent = data.tools;
+      document.getElementById('stepHeading').textContent = data.heading;
+      document.getElementById('stepDesc').textContent = data.desc;
+      document.getElementById('stepOutput').innerHTML = data.output;
+    }
+
+    // Interactive Showcase Switcher (Slide 08)
+    let activeShowcaseKey = 'beranda';
+    const showcaseData = {
+      beranda: {
+        title: 'Foto 03: Halaman Beranda (index.php) & Katalog Produk',
+        img: 'https://placehold.co/900x480/2563EB/FFFFFF?text=Slot+Foto+03:+Halaman+Beranda+(index.php)+%26+Katalog+Produk',
+        caption: '<i class="bi bi-display text-neo-blue me-1"></i> Foto 03: Halaman Beranda (index.php) dengan Banner Slicing & Katalog Produk',
+        detail: 'Halaman utama website yang menampilkan banner hasil slicing Adobe Photoshop, navigasi responsif berbasis Bootstrap, daftar post thumbnail produk dan layanan perusahaan, serta bagian footer informasi kontak.'
+      },
+      cms: {
+        title: 'Foto 04: Autentikasi Member & CMS PHP (member.php)',
+        img: 'https://placehold.co/900x480/FF5E3A/FFFFFF?text=Slot+Foto+04:+CMS+Sederhana',
+        caption: '<i class="bi bi-database-fill text-neo-coral me-1"></i> Foto 04: Modul Autentikasi (Login/Register) & Pengelolaan Data Produk CMS PHP (member.php)',
+        detail: 'CMS sederhana berbasis PHP dan MySQL yang memungkinkan pengubahan teks dan ikon pada bagian konten yang telah tersedia. Fitur untuk menambahkan bagian atau konten baru belum tersedia.'
+      },
+      profil: {
+        title: 'Foto 05: Halaman Profil (about.html) & Kegiatan (kegiatan.html)',
+        img: 'https://placehold.co/900x480/10B981/141414?text=Slot+Foto+05:+Halaman+Profil+(about.html)+%26+Galeri+Kegiatan+(kegiatan.html)',
+        caption: '<i class="bi bi-building text-neo-mint me-1"></i> Foto 05: Halaman Profil Perusahaan (about.html) & Galeri Kegiatan (kegiatan.html)',
+        detail: 'Halaman pendukung yang memuat informasi profil lengkap CV Magnum Solusion (about.html) serta dokumentasi kegiatan dan portofolio proyek perusahaan (kegiatan.html).'
+      }
+    };
+
+    function switchShowcase(key, btnEl) {
+      activeShowcaseKey = key;
+      const data = showcaseData[key];
+      document.getElementById('showcaseImg').src = data.img;
+      document.getElementById('showcaseCaption').innerHTML = data.caption;
+
+      btnEl.parentElement.querySelectorAll('.neo-tab-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+    }
+
+    function zoomCurrentShowcase() {
+      const data = showcaseData[activeShowcaseKey];
+      openDetailModal(data.title, data.img, data.detail);
+    }
+
+    // Detail Modal Functions
+    function openDetailModal(title, imgSrc, caption) {
+      document.getElementById('modalTitle').innerHTML = title;
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalCaption').innerHTML = caption;
+      document.getElementById('detailModalBackdrop').classList.add('open');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModalBackdrop').classList.remove('open');
+    }
+
+    // Mode Edit Teks Langsung
+    editBtn.addEventListener('click', () => {
+      isEditing = !isEditing;
+      const editableEls = document.querySelectorAll('.editable-text');
+      editableEls.forEach(el => el.setAttribute('contenteditable', isEditing));
+
+      if (isEditing) {
+        editBtn.style.background = '#141414';
+        editBtn.style.color = '#FFD60A';
+        editBtn.innerHTML = '<i class="bi bi-check-lg"></i><span class="d-none d-sm-inline">Selesai Edit</span>';
+      } else {
+        editBtn.style.background = '#FDFBF7';
+        editBtn.style.color = '#141414';
+        editBtn.innerHTML = '<i class="bi bi-pencil-fill"></i><span class="d-none d-sm-inline">Edit Teks</span>';
+      }
+    });
+
+    // Mode Fullscreen
+    fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+        fullscreenBtn.innerHTML = '<i class="bi bi-fullscreen-exit"></i>';
+      } else {
+        document.exitFullscreen().catch(() => {});
+        fullscreenBtn.innerHTML = '<i class="bi bi-arrows-fullscreen"></i>';
+      }
+    });
+
+    updateUI();
+  </script>
+<script id="motion-js">
+/* Motion layer: Web Animations API + easing pegas (spring) lewat linear(), tanpa library tambahan */
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s);
+const LIN=!!(window.CSS&&CSS.supports&&CSS.supports('animation-timing-function','linear(0,1)'));
+function spring(k,c){if(!LIN)return{ease:'cubic-bezier(.34,1.35,.64,1)',dur:Math.round(Math.sqrt(1/k)*9000)};const pts=[];let x=0,v=0,n=0,ok=0;const dt=1/240;
+ while(n<720){v+=(-k*(x-1)-c*v)*dt;x+=v*dt;n++;if(n%4===0)pts.push(+x.toFixed(4));
+  if(Math.abs(x-1)<.0008&&Math.abs(v)<.01){if(++ok>12)break}else ok=0}
+ pts.push(1);return{ease:'linear('+pts.join(',')+')',dur:Math.round(pts.length*1000/60)}}
+const SPR=spring(170,15),SOFT=spring(110,16),SNAP=spring(330,22),EXP='cubic-bezier(.16,1,.3,1)';
+const A=(el,kf,o={})=>{if(RM||!el)return;if(kf.length===1)kf=[Object.assign({offset:0},kf[0])];
+ try{const a=el.animate(kf,{duration:o.dur||(o.sp?o.sp.dur:700),delay:o.d||0,easing:o.ease||(o.sp?o.sp.ease:EXP),fill:'both'});
+ (el._m=el._m||[]).push(a);a.onfinish=()=>{try{a.cancel()}catch(e){}};return a}catch(e){}};
+const stop=el=>{(el._m||[]).forEach(a=>{try{a.cancel()}catch(e){}});el._m=[]};
+const K={
+ up:y=>[{opacity:0,transform:`translateY(${y}px)`}],
+ x:x=>[{opacity:0,transform:`translateX(${x}px)`}],
+ pop:r=>[{opacity:0,transform:`scale(.55) rotate(${r}deg)`}],
+ card:(x,y,r)=>[{opacity:0,transform:`translate(${x}px,${y}px) scale(.9) rotate(${r}deg)`}],
+ mask:()=>[{opacity:0,clipPath:'inset(0 100% 0 0)',transform:'translateY(16px)'},{clipPath:'inset(-14px)'}],
+ clip:f=>[{clipPath:f,transform:'scale(1.07)'},{clipPath:f[0]==='c'?'circle(150% at 50% 50%)':'inset(-30px)'}]};
+
+/* urutan animasi elemen per slide, disesuaikan dengan peran isinya */
+function seq(s){
+ const n=s.dataset.slide,w=s.getBoundingClientRect(),cx=w.left+w.width/2,cy=w.top+w.height/2,seen=[],blocks=[];let t=60;
+ const vis=e=>e.getClientRects().length>0,DEX='.neo-card,.neo-card-sm,.accordion-neo-card,.tab-pane-box,.service-chip';
+ const take=(sel,ex,b)=>[...s.querySelectorAll(sel)].filter(e=>vis(e)&&!seen.includes(e)&&!(ex&&e.closest(ex))&&!(b&&blocks.some(p=>p.contains(e))));
+ const mark=(l,b)=>l.forEach(e=>{stop(e);seen.push(e);if(b)blocks.push(e)});
+ const side=e=>{const r=e.getBoundingClientRect(),x=r.left+r.width/2;return[x<cx-w.width*.12?-1:x>cx+w.width*.12?1:0,x,r.top+r.height/2]};
+ const bar=()=>{const l=take('.slide-top-bar > *');mark(l);l.forEach((e,i)=>A(e,K.x(i?44:-44),{d:t+i*90,sp:SOFT}));t+=140};
+ const heading=()=>{const l=take('h1,h2,.slide-title,.hero-headline');mark(l);
+  l.forEach((e,i)=>A(e,K.mask(),{d:t+i*160,dur:950}));
+  const h3=take('h3.card-heading-lg',DEX);mark(h3);h3.forEach(e=>A(e,K.mask(),{d:t+700,dur:900}));
+  s.querySelectorAll('.highlight-marker').forEach(e=>{if(vis(e)){stop(e);A(e,[{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(-6px)'}],{d:t+450,dur:700})}});t+=260};
+ const sub=()=>{const l=take('.slide-body p,.slide-body .small',(n==='1'?'.browser-frame,.btn-neo':'.neo-card,.neo-card-sm,.accordion-neo-card,.tab-pane-box,.service-chip,.browser-frame,.photo-slot-card,.qa-sticker,.btn-neo'));
+  mark(l);l.forEach((e,i)=>A(e,K.up(20),{d:t+i*90,sp:SOFT}));t+=l.length?160:0};
+ const tabs=()=>{const l=take('.neo-tab-btn');mark(l);l.forEach((e,i)=>A(e,K.pop(-4),{d:t+i*70,sp:SNAP}));t+=Math.min(l.length*70,280)};
+ const media=()=>{const l=take('.browser-frame,.photo-slot-card',null,1);mark(l,1);
+  l.forEach((e,i)=>{const sd=side(e)[0],f=i===2?'circle(0% at 50% 50%)':(l.length>2&&i===1)?'inset(100% 0 0 0)':sd>0?'inset(0 0 0 100%)':'inset(0 100% 0 0)';A(e,K.clip(f),{d:t+i*160,dur:1000})});t+=Math.min(l.length*160,520)};
+ const cards=()=>{const l=take('.accordion-neo-card,.service-chip,.neo-card,.neo-card-sm,.step-btn-card',null,1);mark(l,1);const wave=n==='7';
+  l.forEach((e,i)=>{const[sx,ex,ey]=side(e),dx=sx*70,dy=sx?20:46;
+   A(e,wave?K.pop(0):K.card(dx,dy,sx*2.5),{d:wave?t+Math.hypot(ex-cx,ey-cy)/w.width*700:t+i*95,sp:wave?SNAP:SPR})});
+  t+=Math.min(l.length*95,650);
+  s.querySelectorAll('.highlight-div').forEach(e=>A(e,[{transform:'scale(1)'},{transform:'scale(1.035)'},{transform:'scale(1)'}],{d:t+250,dur:650,ease:'ease-in-out'}))};
+ const stick=()=>{const l=take('.qa-sticker');mark(l);l.forEach((e,i)=>A(e,[{opacity:0,transform:'scale(0) rotate(-60deg)',offset:0}],{d:t+i*110,sp:SOFT}));t+=l.length*60};
+ const btns=()=>{const l=take('.btn-neo');mark(l);l.forEach((e,i)=>A(e,K.pop(0),{d:t+i*90,sp:SNAP}));t+=l.length*50};
+ const foot=()=>{const l=take('.slide-footer-bar');mark(l);l.forEach(e=>A(e,K.up(16),{d:t,sp:SOFT}))};
+ const wr=[...s.querySelectorAll('.slide-body .neo-card')].filter(c=>c.querySelector('h1'));
+ const kids=()=>{const l=wr.flatMap(c=>[...c.children]).filter(e=>vis(e)&&!seen.includes(e));mark(l);l.forEach((e,i)=>A(e,K.up(24),{d:t+i*110,sp:SOFT}));t+=l.length*60};
+ (wr.length?[bar,cards,heading,kids,stick,sub,btns,foot]:[bar,heading,sub,tabs,media,cards,stick,btns,foot]).forEach(f=>f())}
+
+function container(s,dir){const n=+s.dataset.slide;
+ if(s.classList.contains('chapter-divider'))return A(s,[{clipPath:'inset(0 0 0 100%)'},{clipPath:'inset(0)'}],{dur:800,ease:'cubic-bezier(.7,0,.2,1)'});
+ if(n===17||n===20)return A(s,[{clipPath:'circle(0% at 50% 60%)'},{clipPath:'circle(150% at 50% 60%)'}],{dur:950,ease:'cubic-bezier(.6,0,.2,1)'});
+ if(n===1)return A(s,[{opacity:0,transform:'scale(1.06)'},{opacity:1,transform:'none'}],{dur:900});
+ A(s,[{opacity:0,transform:`translateX(${dir*28}px)`},{opacity:1,transform:'none'}],{dur:420})}
+function leave(s){if(RM)return;stop(s);s.classList.add('mo-out');
+ const a=s.animate([{opacity:1,transform:'none'},{opacity:0,transform:'scale(.97)'}],{duration:300,easing:'ease-in',fill:'forwards'});s._lv=a;
+ a.onfinish=()=>{a.cancel();s.classList.remove('mo-out');s.querySelectorAll('*').forEach(stop);s._lv=null}}
+function enter(s,dir){if(s._lv){s._lv.cancel();s._lv=null;s.classList.remove('mo-out')}stop(s);if(RM)return;seq(s);container(s,dir)}
+
+const _g=window.goToSlide;
+window.goToSlide=function(t){if(t<1||t>totalSlides||t===currentSlide)return;
+ const from=slides[currentSlide-1],dir=t>currentSlide?1:-1;_g(t);try{leave(from);enter(slides[t-1],dir);A(document.getElementById('slideCounterText'),[{opacity:0,transform:`translateY(${dir*14}px)`}],{sp:SNAP})}catch(e){}};
+try{enter(slides[0],1)}catch(e){}
+document.body.classList.add('mo-ready');
+
+/* interaksi gaya motion.dev: press spring, tombol magnetik, tilt 3D, parallax, drag */
+if(!RM){
+ const PR='.neo-tab-btn,.btn-neo,.step-btn-card,.service-chip,.neo-card,.accordion-neo-card,.jump-item,.photo-slot-card';
+ addEventListener('pointerdown',e=>{const el=e.target.closest&&e.target.closest(PR);if(!el||isEditing)return;
+  const sc=el.matches('.neo-card,.accordion-neo-card,.photo-slot-card')?.985:.95;
+  const a=el.animate([{transform:`scale(${sc})`}],{duration:110,easing:'ease-out',fill:'forwards'});
+  const up=()=>{removeEventListener('pointerup',up);removeEventListener('pointercancel',up);a.cancel();
+   el.animate([{transform:`scale(${sc})`,offset:0}],{duration:SNAP.dur,easing:SNAP.ease})};
+  addEventListener('pointerup',up);addEventListener('pointercancel',up)});
+ addEventListener('pointermove',e=>{const b=e.target.closest&&e.target.closest('.btn-neo');if(!b||e.pointerType==='touch')return;
+  const r=b.getBoundingClientRect();b.style.translate=((e.clientX-r.left-r.width/2)*.18)+'px '+((e.clientY-r.top-r.height/2)*.28)+'px'});
+ addEventListener('pointerout',e=>{const b=e.target.closest&&e.target.closest('.btn-neo');if(!b||b.contains(e.relatedTarget))return;
+  const c=b.style.translate||'0px 0px';b.animate([{translate:c},{translate:'0px 0px'}],{duration:SNAP.dur,easing:SNAP.ease});b.style.translate=''});
+ document.querySelectorAll('.browser-frame').forEach(bf=>{
+  bf.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;const r=bf.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+   bf.style.transform=`perspective(900px) rotateY(${x*9}deg) rotateX(${-y*9}deg)`});
+  bf.addEventListener('pointerleave',()=>{const c=getComputedStyle(bf).transform;bf.style.transform='';
+   bf.animate([{transform:c,offset:0}],{duration:SOFT.dur,easing:SOFT.ease})})});
+ const b1=$('.bg-blob-top'),b2=$('.bg-blob-bottom');
+ addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;
+  if(b1)b1.style.translate=(-x*26)+'px '+(-y*26)+'px';if(b2)b2.style.translate=(x*36)+'px '+(y*36)+'px'});
+ document.querySelectorAll('.qa-sticker').forEach(el=>{let sx,sy,on=0;
+  el.addEventListener('pointerdown',e=>{on=1;sx=e.clientX;sy=e.clientY;el.setPointerCapture(e.pointerId);el.style.zIndex=30;e.stopPropagation()});
+  el.addEventListener('pointermove',e=>{if(on)el.style.translate=(e.clientX-sx)+'px '+(e.clientY-sy)+'px'});
+  const end=()=>{if(!on)return;on=0;const c=el.style.translate||'0px 0px';
+   el.animate([{translate:c},{translate:'0px 0px'}],{duration:Math.round(SOFT.dur*1.2),easing:SOFT.ease});el.style.translate='';el.style.zIndex=''};
+  el.addEventListener('pointerup',end);el.addEventListener('pointercancel',end)})}
+
+/* komponen interaktif yang sudah ada: tambahkan respons motion tanpa mengubah logikanya */
+const wrap=(n,f)=>{const o=window[n];if(typeof o!=='function')return;
+ window[n]=function(){const r=o.apply(this,arguments);try{if(!RM)f.apply(null,arguments)}catch(e){}return r}};
+wrap('switchTab',(g,id,btn)=>{A(btn,[{transform:'scale(.88)'}],{sp:SNAP});const p=document.getElementById(g+'-'+id);if(!p)return;
+ const l=[...p.querySelectorAll('.neo-card,.neo-card-sm,tr,li')].filter((e,_,a)=>e.getClientRects().length&&!a.some(q=>q!==e&&q.contains(e)));
+ (l.length?l:[p]).forEach((e,i)=>A(e,[{opacity:0,transform:'translateY(28px) scale(.96)'}],{d:i*70,sp:SPR}))});
+wrap('filterServices',(c,btn)=>{A(btn,[{transform:'scale(.9)'}],{sp:SNAP});
+ [...document.querySelectorAll('.service-chip')].filter(e=>!e.classList.contains('dimmed')).forEach((e,i)=>A(e,[{transform:'scale(.9)'}],{d:i*25,sp:SNAP}))});
+wrap('selectStep',(k,btn)=>{A(btn,[{transform:'scale(.92)'}],{sp:SNAP});A($('#stepDetailCard'),[{opacity:.2,transform:'translateY(22px) scale(.97)'}],{sp:SPR});
+ ['stepBadge','stepTools','stepHeading','stepDesc','stepOutput'].forEach((id,i)=>A(document.getElementById(id),[{opacity:0,transform:'translateY(14px)'}],{d:90+i*70,sp:SOFT}))});
+wrap('switchShowcase',(k,btn)=>{A(btn,[{transform:'scale(.9)'}],{sp:SNAP});
+ A($('#showcaseImg'),[{clipPath:'inset(0 0 0 100%)',transform:'scale(1.06)'},{clipPath:'inset(-4px)'}],{dur:800});
+ A($('#showcaseCaption'),[{opacity:0,transform:'translateY(12px)'}],{d:250,sp:SOFT})});
+wrap('openDetailModal',()=>{const b=$('#detailModalBackdrop');A(b,[{opacity:0}],{dur:250,ease:'ease-out'});
+ A(b.querySelector('.neo-modal-box'),[{opacity:0,transform:'translateY(40px) scale(.88)'}],{sp:SPR})});
+wrap('toggleAccordion',el=>A(el,[{transform:'scale(.97)'}],{sp:SNAP}));
+wrap('toggleAllAccordions',()=>document.querySelectorAll('.accordion-neo-card').forEach((e,i)=>A(e,[{transform:'scale(.97)'}],{d:i*45,sp:SNAP})));
+wrap('toggleJumpMenu',()=>{const p=$('#jumpMenuPopover');
+ if(p.classList.contains('open'))p.querySelectorAll('.jump-item').forEach((e,i)=>A(e,[{opacity:0,transform:'translateX(-18px)'}],{d:i*22,sp:SOFT}))});
+})();
+</script>
+</body>
+</html>
